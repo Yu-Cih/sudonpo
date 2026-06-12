@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>測試建立網站 ☕</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">☕ 測試建立網站</div>
+      <ul class="nav-links">
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#team">我們的夥伴</a></li>
+        <li><a href="#menu">菜單</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger">&#9776;</button>
+    </nav>
+  </header>
+
+  <!-- Hero 區塊 -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>歡迎光臨</h1>
+      <p>每一杯咖啡，都是我們對你的心意</p>
+      <a href="#menu" class="btn">查看菜單</a>
+    </div>
+  </section>
+
+  <!-- 店家介紹 -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">關於我們</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>我們的故事</h3>
+          <p>
+            成立於 2020 年，我們希望打造一個讓每個人都能放鬆身心的角落。
+            從嚴選豆源到精心沖煮，每一個細節都傾注了我們對咖啡的熱愛。
+          </p>
+          <p>
+            無論你是需要一個安靜工作的空間，還是與朋友相聚的好地方，
+            這裡永遠為你保留一個位置。
+          </p>
+        </div>
+        <div class="about-info">
+          <div class="info-card">
+            <span class="icon">📍</span>
+            <h4>地址</h4>
+            <p>台北市中山區咖啡街 1 號</p>
+          </div>
+          <div class="info-card">
+            <span class="icon">🕐</span>
+            <h4>營業時間</h4>
+            <p>週一至週五 08:00 – 20:00</p>
+            <p>週六至週日 09:00 – 21:00</p>
+          </div>
+          <div class="info-card">
+            <span class="icon">📞</span>
+            <h4>電話</h4>
+            <p>(02) 1234-5678</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 店員介紹 -->
+  <section id="team" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">我們的夥伴</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">👩‍🍳</div>
+          <h3>小明</h3>
+          <p class="team-role">首席咖啡師</p>
+          <p>擁有 10 年沖煮經驗，擅長手沖與義式咖啡，最愛嘗試來自衣索比亞的豆子。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">👨‍🍳</div>
+          <h3>小美</h3>
+          <p class="team-role">甜點主廚</p>
+          <p>從法國藍帶學成歸國，每日手工製作限量甜點，讓每一口都是驚喜。</p>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar">🧑‍💼</div>
+          <h3>阿志</h3>
+          <p class="team-role">店長</p>
+          <p>溫暖的笑容是他的招牌，確保每位客人都能有最舒適的用餐體驗。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 菜單 -->
+  <section id="menu" class="section">
+    <div class="container">
+      <h2 class="section-title">菜單</h2>
+
+      <div class="menu-tabs">
+        <button class="tab-btn active" data-tab="coffee">☕ 咖啡</button>
+        <button class="tab-btn" data-tab="nonCoffee">🍵 非咖啡</button>
+        <button class="tab-btn" data-tab="dessert">🍰 甜點</button>
+      </div>
+
+      <div class="menu-content active" id="coffee">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">義式濃縮 Espresso</span>
+              <span class="menu-price">$80</span>
+            </div>
+            <p>強烈醇厚的義式基底，香氣濃郁持久</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">拿鐵 Latte</span>
+              <span class="menu-price">$130</span>
+            </div>
+            <p>細緻奶泡與濃縮完美融合，口感絲滑</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">卡布奇諾 Cappuccino</span>
+              <span class="menu-price">$130</span>
+            </div>
+            <p>濃縮、牛奶、奶泡三層完美比例</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">手沖單品 Pour Over</span>
+              <span class="menu-price">$160</span>
+            </div>
+            <p>每日精選單品豆，依產區風味手工沖煮</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-content" id="nonCoffee">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">玫瑰拿鐵</span>
+              <span class="menu-price">$140</span>
+            </div>
+            <p>玫瑰花瓣萃取搭配熱牛奶，清雅芬芳</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">抹茶牛奶</span>
+              <span class="menu-price">$140</span>
+            </div>
+            <p>日本宇治抹茶粉，清苦回甘</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">熱可可</span>
+              <span class="menu-price">$120</span>
+            </div>
+            <p>比利時純可可粉，暖心療癒首選</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-content" id="dessert">
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">每日手工蛋糕</span>
+              <span class="menu-price">$120</span>
+            </div>
+            <p>每日限量，請洽現場人員確認當日口味</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">法式可頌</span>
+              <span class="menu-price">$80</span>
+            </div>
+            <p>外酥內軟，早晨最佳良伴</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-name">比利時鬆餅</span>
+              <span class="menu-price">$150</span>
+            </div>
+            <p>附新鮮水果與楓糖漿，可加點冰淇淋</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 聯絡我們 -->
+  <section id="contact" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">聯絡我們</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p>📍 台北市中山區咖啡街 1 號</p>
+          <p>📞 (02) 1234-5678</p>
+          <p>📧 hello@cafe-test.tw</p>
+          <p>🔗 Instagram：@cafe_test</p>
+        </div>
+        <div class="map-placeholder">
+          <p>🗺️ Google Map 嵌入區</p>
+          <small>可至 Google Maps 複製嵌入碼後替換此區塊</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 測試建立網站 ☕ All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
