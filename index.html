@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>測試建立網站 ☕</title>
+  <title>SUDONPO | 一樓酒店</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -11,12 +11,13 @@
   <!-- 導覽列 -->
   <header>
     <nav class="navbar">
-      <div class="logo">☕ 測試建立網站</div>
+      <div class="logo">SUDONPO</div>
       <ul class="nav-links">
-        <li><a href="#about">關於我們</a></li>
-        <li><a href="#team">我們的夥伴</a></li>
-        <li><a href="#menu">菜單</a></li>
-        <li><a href="#contact">聯絡我們</a></li>
+        <li><a href="#about">一樓酒店</a></li>
+        <li><a href="#headliner">頭牌介紹</a></li>
+        <li><a href="#menu">酒單</a></li>
+        <li><a href="#vvip">VVIP 榜首</a></li>
+        <li><a href="chapel.html">地下教堂</a></li>
       </ul>
       <button class="hamburger" id="hamburger">&#9776;</button>
     </nav>
@@ -24,118 +25,123 @@
 
   <!-- Hero 區塊 -->
   <section class="hero">
+    <div class="hero-media" aria-hidden="true"></div>
     <div class="hero-content">
-      <h1>歡迎光臨</h1>
-      <p>每一杯咖啡，都是我們對你的心意</p>
-      <a href="#menu" class="btn">查看菜單</a>
+      <h1>SUDONPO</h1>
+      <p>光與香檳交錯的夜晚，獻給每位想短暫忘記現實的旅人。</p>
+      <a href="#headliner" class="btn">查看今夜頭牌</a>
     </div>
   </section>
 
-  <!-- 店家介紹 -->
+  <!-- 一樓酒店介紹 -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">關於我們</h2>
+      <h2 class="section-title">一樓酒店</h2>
       <div class="about-grid">
+        <figure class="about-image image-slot image-floor1-about" role="img" aria-label="SUDONPO 一樓酒店空間"></figure>
         <div class="about-text">
-          <h3>我們的故事</h3>
+          <h3>今夜營業中</h3>
           <p>
-            成立於 2020 年，我們希望打造一個讓每個人都能放鬆身心的角落。
-            從嚴選豆源到精心沖煮，每一個細節都傾注了我們對咖啡的熱愛。
+            SUDONPO 在夜色之後才真正甦醒。紅絨帷幕拉開、燈光落下，
+            每一位來客都會由最適合的店員接待，享受專屬於自己的故事線。
           </p>
           <p>
-            無論你是需要一個安靜工作的空間，還是與朋友相聚的好地方，
-            這裡永遠為你保留一個位置。
+            一樓為酒店區，提供陪酒互動、主題夜活動與包廂接待。
+            若你獲得邀請，還能前往地下室，見證 SUDONPO 的另一面。
           </p>
         </div>
         <div class="about-info">
           <div class="info-card">
-            <span class="icon">📍</span>
-            <h4>地址</h4>
-            <p>台北市中山區咖啡街 1 號</p>
+            <span class="icon">🍾</span>
+            <h4>主題夜</h4>
+            <p>每日 21:00 開場，00:00 後進入 VVIP 時段</p>
           </div>
           <div class="info-card">
-            <span class="icon">🕐</span>
-            <h4>營業時間</h4>
-            <p>週一至週五 08:00 – 20:00</p>
-            <p>週六至週日 09:00 – 21:00</p>
+            <span class="icon">🥂</span>
+            <h4>接待樓層</h4>
+            <p>1F 酒店大廳 / 包廂席位 / 舞台區</p>
           </div>
           <div class="info-card">
-            <span class="icon">📞</span>
-            <h4>電話</h4>
-            <p>(02) 1234-5678</p>
+            <span class="icon">🕯️</span>
+            <h4>秘密入口</h4>
+            <p><a href="chapel.html" class="inline-link">通往地下暗黑教堂</a></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 店員介紹 -->
-  <section id="team" class="section section-alt">
+  <!-- 頭牌與店員 -->
+  <section id="headliner" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">我們的夥伴</h2>
+      <h2 class="section-title">頭牌與店員名冊</h2>
       <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar">👩‍🍳</div>
-          <h3>小明</h3>
-          <p class="team-role">首席咖啡師</p>
-          <p>擁有 10 年沖煮經驗，擅長手沖與義式咖啡，最愛嘗試來自衣索比亞的豆子。</p>
+        <div class="team-card headliner-card">
+          <div class="team-photo image-slot image-host-yuzu" role="img" aria-label="YUZU 頭牌形象照"></div>
+          <h3>YUZU</h3>
+          <p class="team-role">今夜頭牌</p>
+          <p>擅長以優雅口吻掌握節奏，能在三句話內記住你的偏好，讓你忘記時間。</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar">👨‍🍳</div>
-          <h3>小美</h3>
-          <p class="team-role">甜點主廚</p>
-          <p>從法國藍帶學成歸國，每日手工製作限量甜點，讓每一口都是驚喜。</p>
+          <div class="team-photo image-slot image-host-akira" role="img" aria-label="AKIRA 店員形象照"></div>
+          <h3>AKIRA</h3>
+          <p class="team-role">銀席店員</p>
+          <p>氣氛製造專家，適合初次來店的新客與想輕鬆聊天的夜間常客。</p>
         </div>
         <div class="team-card">
-          <div class="team-avatar">🧑‍💼</div>
-          <h3>阿志</h3>
-          <p class="team-role">店長</p>
-          <p>溫暖的笑容是他的招牌，確保每位客人都能有最舒適的用餐體驗。</p>
+          <div class="team-photo image-slot image-host-noir" role="img" aria-label="NOIR 店員形象照"></div>
+          <h3>NOIR</h3>
+          <p class="team-role">黑卡專屬</p>
+          <p>擅長高端包廂接待與主題演出，僅於指定時段開放預約。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 菜單 -->
+  <!-- 酒單 -->
   <section id="menu" class="section">
     <div class="container">
-      <h2 class="section-title">菜單</h2>
+      <h2 class="section-title">今晚酒單</h2>
 
       <div class="menu-tabs">
-        <button class="tab-btn active" data-tab="coffee">☕ 咖啡</button>
-        <button class="tab-btn" data-tab="nonCoffee">🍵 非咖啡</button>
-        <button class="tab-btn" data-tab="dessert">🍰 甜點</button>
+        <button class="tab-btn active" data-tab="coffee">🥃 經典烈酒</button>
+        <button class="tab-btn" data-tab="nonCoffee">🍸 調酒特調</button>
+        <button class="tab-btn" data-tab="dessert">🍾 香檳塔</button>
       </div>
 
       <div class="menu-content active" id="coffee">
         <div class="menu-grid">
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-whisky" role="img" aria-label="帝王威士忌"></div>
             <div class="menu-item-header">
-              <span class="menu-name">義式濃縮 Espresso</span>
-              <span class="menu-price">$80</span>
+              <span class="menu-name">帝王威士忌</span>
+              <span class="menu-price">2,800 Gil</span>
             </div>
-            <p>強烈醇厚的義式基底，香氣濃郁持久</p>
+            <p>厚實木桶香氣，適合沉穩對談與長夜慢飲。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-brandy" role="img" aria-label="緋紅白蘭地"></div>
             <div class="menu-item-header">
-              <span class="menu-name">拿鐵 Latte</span>
-              <span class="menu-price">$130</span>
+              <span class="menu-name">緋紅白蘭地</span>
+              <span class="menu-price">3,200 Gil</span>
             </div>
-            <p>細緻奶泡與濃縮完美融合，口感絲滑</p>
+            <p>微甜果香與辛香尾韻，頭牌推薦首選。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-tequila" role="img" aria-label="黑曜龍舌蘭"></div>
             <div class="menu-item-header">
-              <span class="menu-name">卡布奇諾 Cappuccino</span>
-              <span class="menu-price">$130</span>
+              <span class="menu-name">黑曜龍舌蘭</span>
+              <span class="menu-price">2,500 Gil</span>
             </div>
-            <p>濃縮、牛奶、奶泡三層完美比例</p>
+            <p>前段辛辣俐落，後段回甘，適合熱血玩家。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-vodka" role="img" aria-label="夜巡伏特加"></div>
             <div class="menu-item-header">
-              <span class="menu-name">手沖單品 Pour Over</span>
-              <span class="menu-price">$160</span>
+              <span class="menu-name">夜巡伏特加</span>
+              <span class="menu-price">2,100 Gil</span>
             </div>
-            <p>每日精選單品豆，依產區風味手工沖煮</p>
+            <p>純淨俐落，適合搭配舞台秀與深夜交流。</p>
           </div>
         </div>
       </div>
@@ -143,25 +149,28 @@
       <div class="menu-content" id="nonCoffee">
         <div class="menu-grid">
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-mojito" role="img" aria-label="月影莫西多"></div>
             <div class="menu-item-header">
-              <span class="menu-name">玫瑰拿鐵</span>
-              <span class="menu-price">$140</span>
+              <span class="menu-name">月影莫西多</span>
+              <span class="menu-price">1,500 Gil</span>
             </div>
-            <p>玫瑰花瓣萃取搭配熱牛奶，清雅芬芳</p>
+            <p>清新薄荷加上夜色檸香，適合開場暖身。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-martini" role="img" aria-label="SUDONPO 獨家 Martini"></div>
             <div class="menu-item-header">
-              <span class="menu-name">抹茶牛奶</span>
-              <span class="menu-price">$140</span>
+              <span class="menu-name">SUDONPO 獨家 Martini</span>
+              <span class="menu-price">1,900 Gil</span>
             </div>
-            <p>日本宇治抹茶粉，清苦回甘</p>
+            <p>琥珀金酒與莓果利口酒，帶出華麗與危險。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-negroni" role="img" aria-label="黎明前 Negroni"></div>
             <div class="menu-item-header">
-              <span class="menu-name">熱可可</span>
-              <span class="menu-price">$120</span>
+              <span class="menu-name">黎明前 Negroni</span>
+              <span class="menu-price">1,700 Gil</span>
             </div>
-            <p>比利時純可可粉，暖心療癒首選</p>
+            <p>苦甜平衡，為深夜談判與情感對決而生。</p>
           </div>
         </div>
       </div>
@@ -169,25 +178,28 @@
       <div class="menu-content" id="dessert">
         <div class="menu-grid">
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-champagne-silver" role="img" aria-label="銀階香檳塔"></div>
             <div class="menu-item-header">
-              <span class="menu-name">每日手工蛋糕</span>
-              <span class="menu-price">$120</span>
+              <span class="menu-name">銀階香檳塔</span>
+              <span class="menu-price">8,000 Gil</span>
             </div>
-            <p>每日限量，請洽現場人員確認當日口味</p>
+            <p>適合小隊慶功，附店員祝酒演出一回合。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-champagne-gold" role="img" aria-label="金階香檳塔"></div>
             <div class="menu-item-header">
-              <span class="menu-name">法式可頌</span>
-              <span class="menu-price">$80</span>
+              <span class="menu-name">金階香檳塔</span>
+              <span class="menu-price">16,000 Gil</span>
             </div>
-            <p>外酥內軟，早晨最佳良伴</p>
+            <p>全場燈光秀 + 頭牌致詞，VVIP 常見點法。</p>
           </div>
           <div class="menu-item">
+            <div class="menu-photo image-slot image-menu-champagne-crown" role="img" aria-label="王冠香檳塔"></div>
             <div class="menu-item-header">
-              <span class="menu-name">比利時鬆餅</span>
-              <span class="menu-price">$150</span>
+              <span class="menu-name">王冠香檳塔</span>
+              <span class="menu-price">32,000 Gil</span>
             </div>
-            <p>附新鮮水果與楓糖漿，可加點冰淇淋</p>
+            <p>解鎖專屬席位與地下教堂觀禮資格。</p>
           </div>
         </div>
       </div>
@@ -195,27 +207,41 @@
     </div>
   </section>
 
-  <!-- 聯絡我們 -->
-  <section id="contact" class="section section-alt">
+  <!-- VVIP 榜首 -->
+  <section id="vvip" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">聯絡我們</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <p>📍 台北市中山區咖啡街 1 號</p>
-          <p>📞 (02) 1234-5678</p>
-          <p>📧 hello@cafe-test.tw</p>
-          <p>🔗 Instagram：@cafe_test</p>
+      <h2 class="section-title">VVIP 榜首</h2>
+      <div class="vvip-board">
+        <div class="vvip-item top-rank">
+          <div class="vvip-photo image-slot image-vvip-rank-1" role="img" aria-label="VVIP 榜首照片"></div>
+          <span class="rank">#1</span>
+          <div>
+            <h3>Lord Aster</h3>
+            <p>本月累積消費 288,000 Gil ・ 王冠香檳塔 6 次</p>
+          </div>
         </div>
-        <div class="map-placeholder">
-          <p>🗺️ Google Map 嵌入區</p>
-          <small>可至 Google Maps 複製嵌入碼後替換此區塊</small>
+        <div class="vvip-item">
+          <div class="vvip-photo image-slot image-vvip-rank-2" role="img" aria-label="VVIP 第二名照片"></div>
+          <span class="rank">#2</span>
+          <div>
+            <h3>Lady Momo</h3>
+            <p>本月累積消費 201,500 Gil ・ 指名 YUZU 12 回</p>
+          </div>
+        </div>
+        <div class="vvip-item">
+          <div class="vvip-photo image-slot image-vvip-rank-3" role="img" aria-label="VVIP 第三名照片"></div>
+          <span class="rank">#3</span>
+          <div>
+            <h3>Kaien</h3>
+            <p>本月累積消費 169,000 Gil ・ 黑卡包廂 8 晚</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2024 測試建立網站 ☕ All rights reserved.</p>
+    <p>© 2026 SUDONPO Host Lounge ・ Floor 1</p>
   </footer>
 
   <script src="js/main.js"></script>
