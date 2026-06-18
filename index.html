@@ -1,249 +1,436 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUDONPO | 一樓酒店</title>
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUDONPO — Exclusive Lounge</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- 導覽列 -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">SUDONPO</div>
-      <ul class="nav-links">
-        <li><a href="#about">一樓酒店</a></li>
-        <li><a href="#headliner">頭牌介紹</a></li>
-        <li><a href="#menu">酒單</a></li>
-        <li><a href="#vvip">VVIP 榜首</a></li>
-        <li><a href="chapel.html">地下教堂</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger">&#9776;</button>
-    </nav>
-  </header>
+<nav id="mainNav">
+  <ul class="nav-links">
+    <li><a href="#about"><span class="nav-label-en">About</span><span class="nav-label-zh">關於本店</span></a></li>
+    <li><a href="#team"><span class="nav-label-en">Team</span><span class="nav-label-zh">經營團隊</span></a></li>
+    <li><a href="#vip"><span class="nav-label-en">Weekly VIP</span><span class="nav-label-zh">本週VIP</span></a></li>
+    <li><a href="#menu"><span class="nav-label-en">Menu</span><span class="nav-label-zh">販售項目</span></a></li>
+    <li><a href="#voices"><span class="nav-label-en">Voices</span><span class="nav-label-zh">客之聲</span></a></li>
+    <li><a href="chapel.html"><span class="nav-label-en">Chapel</span><span class="nav-label-zh">地下教堂</span></a></li>
+  </ul>
+</nav>
 
-  <!-- Hero 區塊 -->
-  <section class="hero">
-    <div class="hero-media" aria-hidden="true"></div>
-    <div class="hero-content">
-      <h1>SUDONPO</h1>
-      <p>光與香檳交錯的夜晚，獻給每位想短暫忘記現實的旅人。</p>
-      <a href="#headliner" class="btn">查看今夜頭牌</a>
+<section id="about">
+  <div class="hero-area">
+    <div class="glitter-container" id="heroGlitter"></div>
+    <div class="gold-foil f1"></div>
+    <div class="gold-foil f2"></div>
+    <div class="gold-foil f3"></div>
+    <div class="gold-foil f4"></div>
+    <div class="emboss-pattern"></div>
+
+    <div class="diamond-grid">
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
+      <div class="diamond-cell image-slot image-floor1-hero"></div>
     </div>
-  </section>
 
-  <!-- 一樓酒店介紹 -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">一樓酒店</h2>
-      <div class="about-grid">
-        <figure class="about-image image-slot image-floor1-about" role="img" aria-label="SUDONPO 一樓酒店空間"></figure>
-        <div class="about-text">
-          <h3>今夜營業中</h3>
-          <p>
-            SUDONPO 在夜色之後才真正甦醒。紅絨帷幕拉開、燈光落下，
-            每一位來客都會由最適合的店員接待，享受專屬於自己的故事線。
-          </p>
-          <p>
-            一樓為酒店區，提供陪酒互動、主題夜活動與包廂接待。
-            若你獲得邀請，還能前往地下室，見證 SUDONPO 的另一面。
-          </p>
-        </div>
-        <div class="about-info">
-          <div class="info-card">
-            <span class="icon">🍾</span>
-            <h4>主題夜</h4>
-            <p>每日 21:00 開場，00:00 後進入 VVIP 時段</p>
-          </div>
-          <div class="info-card">
-            <span class="icon">🥂</span>
-            <h4>接待樓層</h4>
-            <p>1F 酒店大廳 / 包廂席位 / 舞台區</p>
-          </div>
-          <div class="info-card">
-            <span class="icon">🕯️</span>
-            <h4>秘密入口</h4>
-            <p><a href="chapel.html" class="inline-link">通往地下暗黑教堂</a></p>
-          </div>
-        </div>
-      </div>
+    <div class="hero-diamond-photo image-slot image-floor1-hero" aria-label="SUDONPO 主視覺">
+      <span class="placeholder-text">Main Photo</span>
     </div>
-  </section>
 
-  <!-- 頭牌與店員 -->
-  <section id="headliner" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">頭牌與店員名冊</h2>
-      <div class="team-grid">
-        <div class="team-card headliner-card">
-          <div class="team-photo image-slot image-host-yuzu" role="img" aria-label="YUZU 頭牌形象照"></div>
-          <h3>YUZU</h3>
-          <p class="team-role">今夜頭牌</p>
-          <p>擅長以優雅口吻掌握節奏，能在三句話內記住你的偏好，讓你忘記時間。</p>
-        </div>
-        <div class="team-card">
-          <div class="team-photo image-slot image-host-akira" role="img" aria-label="AKIRA 店員形象照"></div>
-          <h3>AKIRA</h3>
-          <p class="team-role">銀席店員</p>
-          <p>氣氛製造專家，適合初次來店的新客與想輕鬆聊天的夜間常客。</p>
-        </div>
-        <div class="team-card">
-          <div class="team-photo image-slot image-host-noir" role="img" aria-label="NOIR 店員形象照"></div>
-          <h3>NOIR</h3>
-          <p class="team-role">黑卡專屬</p>
-          <p>擅長高端包廂接待與主題演出，僅於指定時段開放預約。</p>
-        </div>
-      </div>
+    <div class="hero-center">
+      <div class="hero-logo">SUDONPO</div>
+      <div class="hero-sub-location">穹頂皓天</div>
+      <div class="hero-tagline">Where Night Meets Elegance</div>
     </div>
-  </section>
+  </div>
 
-  <!-- 酒單 -->
-  <section id="menu" class="section">
-    <div class="container">
-      <h2 class="section-title">今晚酒單</h2>
+  <div class="address-strip">
+    <div class="addr-label">Location</div>
+    <p>泰坦伺服器 &nbsp;&middot;&nbsp; 穹頂皓天 &nbsp;&middot;&nbsp; 10區 30號</p>
+  </div>
 
-      <div class="menu-tabs">
-        <button class="tab-btn active" data-tab="coffee">🥃 經典烈酒</button>
-        <button class="tab-btn" data-tab="nonCoffee">🍸 調酒特調</button>
-        <button class="tab-btn" data-tab="dessert">🍾 香檳塔</button>
-      </div>
-
-      <div class="menu-content active" id="coffee">
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-whisky" role="img" aria-label="帝王威士忌"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">帝王威士忌</span>
-              <span class="menu-price">2,800 Gil</span>
-            </div>
-            <p>厚實木桶香氣，適合沉穩對談與長夜慢飲。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-brandy" role="img" aria-label="緋紅白蘭地"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">緋紅白蘭地</span>
-              <span class="menu-price">3,200 Gil</span>
-            </div>
-            <p>微甜果香與辛香尾韻，頭牌推薦首選。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-tequila" role="img" aria-label="黑曜龍舌蘭"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">黑曜龍舌蘭</span>
-              <span class="menu-price">2,500 Gil</span>
-            </div>
-            <p>前段辛辣俐落，後段回甘，適合熱血玩家。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-vodka" role="img" aria-label="夜巡伏特加"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">夜巡伏特加</span>
-              <span class="menu-price">2,100 Gil</span>
-            </div>
-            <p>純淨俐落，適合搭配舞台秀與深夜交流。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-content" id="nonCoffee">
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-mojito" role="img" aria-label="月影莫西多"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">月影莫西多</span>
-              <span class="menu-price">1,500 Gil</span>
-            </div>
-            <p>清新薄荷加上夜色檸香，適合開場暖身。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-martini" role="img" aria-label="SUDONPO 獨家 Martini"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">SUDONPO 獨家 Martini</span>
-              <span class="menu-price">1,900 Gil</span>
-            </div>
-            <p>琥珀金酒與莓果利口酒，帶出華麗與危險。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-negroni" role="img" aria-label="黎明前 Negroni"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">黎明前 Negroni</span>
-              <span class="menu-price">1,700 Gil</span>
-            </div>
-            <p>苦甜平衡，為深夜談判與情感對決而生。</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-content" id="dessert">
-        <div class="menu-grid">
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-champagne-silver" role="img" aria-label="銀階香檳塔"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">銀階香檳塔</span>
-              <span class="menu-price">8,000 Gil</span>
-            </div>
-            <p>適合小隊慶功，附店員祝酒演出一回合。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-champagne-gold" role="img" aria-label="金階香檳塔"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">金階香檳塔</span>
-              <span class="menu-price">16,000 Gil</span>
-            </div>
-            <p>全場燈光秀 + 頭牌致詞，VVIP 常見點法。</p>
-          </div>
-          <div class="menu-item">
-            <div class="menu-photo image-slot image-menu-champagne-crown" role="img" aria-label="王冠香檳塔"></div>
-            <div class="menu-item-header">
-              <span class="menu-name">王冠香檳塔</span>
-              <span class="menu-price">32,000 Gil</span>
-            </div>
-            <p>解鎖專屬席位與地下教堂觀禮資格。</p>
-          </div>
-        </div>
-      </div>
-
+  <div class="carousel-section">
+    <div class="carousel-track-wrapper">
+      <div class="carousel-track" id="track1"></div>
     </div>
-  </section>
+    <div class="carousel-track-wrapper">
+      <div class="carousel-track reverse" id="track2"></div>
+    </div>
+  </div>
 
-  <!-- VVIP 榜首 -->
-  <section id="vvip" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">VVIP 榜首</h2>
-      <div class="vvip-board">
-        <div class="vvip-item top-rank">
-          <div class="vvip-photo image-slot image-vvip-rank-1" role="img" aria-label="VVIP 榜首照片"></div>
-          <span class="rank">#1</span>
-          <div>
-            <h3>Lord Aster</h3>
-            <p>本月累積消費 288,000 Gil ・ 王冠香檳塔 6 次</p>
-          </div>
-        </div>
-        <div class="vvip-item">
-          <div class="vvip-photo image-slot image-vvip-rank-2" role="img" aria-label="VVIP 第二名照片"></div>
-          <span class="rank">#2</span>
-          <div>
-            <h3>Lady Momo</h3>
-            <p>本月累積消費 201,500 Gil ・ 指名 YUZU 12 回</p>
-          </div>
-        </div>
-        <div class="vvip-item">
-          <div class="vvip-photo image-slot image-vvip-rank-3" role="img" aria-label="VVIP 第三名照片"></div>
-          <span class="rank">#3</span>
-          <div>
-            <h3>Kaien</h3>
-            <p>本月累積消費 169,000 Gil ・ 黑卡包廂 8 晚</p>
-          </div>
-        </div>
+  <div class="text-content-area reveal">
+    <div class="gold-divider"></div>
+    <div class="text-placeholder">
+      <span>— 文字內容待補 —</span>
+    </div>
+  </div>
+
+  <div class="cta-arrow">
+    <a href="#team">
+      <svg viewBox="0 0 32 32">
+        <line x1="16" y1="4" x2="16" y2="26" />
+        <polyline points="8,18 16,26 24,18" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section id="team">
+  <div class="section-header reveal">
+    <h2>Team</h2>
+    <div class="sub">本 店 經 營 團 隊</div>
+  </div>
+
+  <div class="team-tier reveal">
+    <div class="tier-label">Core Management</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo image-slot image-host-yuzu"><span class="placeholder-text">Photo</span></div>
+        <div class="team-name"></div>
+        <div class="team-role">Founder</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo image-slot image-host-akira"><span class="placeholder-text">Photo</span></div>
+        <div class="team-name"></div>
+        <div class="team-role">CEO</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <p>© 2026 SUDONPO Host Lounge ・ Floor 1</p>
-  </footer>
+  <div class="team-tier reveal">
+    <div class="tier-label">Host</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo image-slot image-host-yuzu"><span class="placeholder-text">Photo</span></div>
+        <div class="team-name"></div>
+        <div class="team-role">Host</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo image-slot image-host-noir"><span class="placeholder-text">Photo</span></div>
+        <div class="team-name"></div>
+        <div class="team-role">Host</div>
+      </div>
+    </div>
+  </div>
 
-  <script src="js/main.js"></script>
+  <div class="team-tier reveal">
+    <div class="tier-label">Dancer</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo image-slot image-host-akira"><span class="placeholder-text">Photo</span></div>
+        <div class="team-name"></div>
+        <div class="team-role">Dancer</div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo image-slot image-host-noir"><span class="placeholder-text">Photo</span></div>
+        <div class="team-name"></div>
+        <div class="team-role">Dancer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-arrow">
+    <a href="#vip">
+      <svg viewBox="0 0 32 32">
+        <line x1="16" y1="4" x2="16" y2="26" />
+        <polyline points="8,18 16,26 24,18" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section id="vip">
+  <div class="section-header reveal">
+    <h2>Weekly VIP</h2>
+    <div class="sub">本 週 V I P</div>
+  </div>
+
+  <div class="vip-content reveal">
+    <p class="vip-intro">
+      每月，我們為最尊貴的賓客獻上<em>專屬尊榮設計款</em>。<br>
+      唯有當週消費最高的王者，方能登上此殿堂，<br>
+      以金框銘刻您的風範，感謝您對本店的厚愛與眷顧。<br>
+      <em>成為傳奇，就在此刻。</em>
+    </p>
+
+    <div class="vip-frame-wrapper">
+      <div class="sparkle-container" id="sparkles"></div>
+      <div class="vip-glow"></div>
+      <div class="vip-frame">
+        <div class="vip-crown">
+          <svg viewBox="0 0 50 40">
+            <polygon points="5,30 10,12 18,22 25,4 32,22 40,12 45,30" />
+            <rect x="5" y="30" width="40" height="5" rx="1" />
+          </svg>
+        </div>
+        <div class="corner-ornament tl"></div>
+        <div class="corner-ornament tr"></div>
+        <div class="corner-ornament bl"></div>
+        <div class="corner-ornament br"></div>
+        <div class="vip-frame-border image-slot image-vvip-rank-1"></div>
+        <div class="vip-photo-area image-slot image-vvip-rank-1">
+          <span class="placeholder-text">VIP Photo</span>
+        </div>
+      </div>
+      <div class="vip-name-plate">
+        <span class="name"></span>
+        <span class="badge">WEEKLY CHAMPION</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-arrow" style="padding-top:60px">
+    <a href="#menu">
+      <svg viewBox="0 0 32 32">
+        <line x1="16" y1="4" x2="16" y2="26" />
+        <polyline points="8,18 16,26 24,18" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="section-header reveal">
+    <h2>Menu</h2>
+    <div class="sub">販 售 項 目</div>
+  </div>
+
+  <div class="menu-grid reveal">
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="2"/><line x1="4" y1="14" x2="28" y2="14"/><circle cx="22" cy="20" r="2"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">入場費</div>
+        <div class="menu-desc">Entrance Fee</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>3,000</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><rect x="5" y="4" width="22" height="18" rx="2"/><circle cx="16" cy="13" r="5"/><circle cx="16" cy="13" r="2"/><rect x="8" y="24" width="16" height="5" rx="1"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">拍立得</div>
+        <div class="menu-desc">三款框樣式可選 / 每週上限 5 張</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>100,000</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><path d="M16 4 L18 12 L14 12 Z"/><line x1="16" y1="12" x2="16" y2="26"/><path d="M10 26 Q16 22 22 26"/><line x1="12" y1="2" x2="10" y2="6"/><line x1="20" y1="2" x2="22" y2="6"/><line x1="16" y1="1" x2="16" y2="4"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">禮砲</div>
+        <div class="menu-desc">Party Popper</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>200</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><path d="M14 4 L18 4 L17 14 L15 14 Z"/><path d="M12 14 Q16 18 20 14"/><line x1="16" y1="18" x2="16" y2="26"/><line x1="11" y1="26" x2="21" y2="26"/><path d="M10 8 L14 10" stroke-dasharray="1,2"/><path d="M22 8 L18 10" stroke-dasharray="1,2"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">香檳塔</div>
+        <div class="menu-desc">Champagne Tower</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>20,000</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><path d="M10 8 L10 24 Q10 26 12 26 L20 26 Q22 26 22 24 L22 8"/><line x1="10" y1="8" x2="22" y2="8"/><line x1="10" y1="18" x2="22" y2="18"/><rect x="8" y="5" width="16" height="3" rx="1"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">威士忌</div>
+        <div class="menu-desc">Whisky</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>2,000</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><path d="M10 6 L16 18 L16 26"/><path d="M22 6 L16 18"/><line x1="11" y1="26" x2="21" y2="26"/><line x1="8" y1="6" x2="24" y2="6"/><circle cx="20" cy="10" r="1"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">特調</div>
+        <div class="menu-desc">Signature Cocktail</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>2,000</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><ellipse cx="16" cy="22" rx="10" ry="4"/><path d="M6 22 Q6 14 16 10 Q26 14 26 22"/><path d="M16 6 Q18 8 16 10" fill="none"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">點心</div>
+        <div class="menu-desc">依當日供應為主</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>1,000</div>
+    </div>
+    <div class="menu-item">
+      <div class="menu-icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="10" r="5"/><path d="M8 26 Q8 18 16 18 Q24 18 24 26"/><path d="M22 8 L26 4" stroke-dasharray="1,2"/><circle cx="27" cy="3" r="1.5"/></svg></div>
+      <div class="menu-info">
+        <div class="menu-name">指名服務</div>
+        <div class="menu-desc">5 分鐘的專屬時光</div>
+      </div>
+      <div class="menu-price"><span class="currency">$</span>50,000</div>
+    </div>
+  </div>
+
+  <div class="cta-arrow" style="padding-top:50px">
+    <a href="#voices">
+      <svg viewBox="0 0 32 32">
+        <line x1="16" y1="4" x2="16" y2="26" />
+        <polyline points="8,18 16,26 24,18" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="section-header reveal">
+    <h2>Voices</h2>
+    <div class="sub">客 之 聲</div>
+  </div>
+
+  <div class="photo-grid reveal">
+    <div class="photo-cell image-slot image-menu-whisky"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-brandy"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-tequila"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-vodka"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-mojito"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-martini"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-negroni"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-champagne-silver"><span class="placeholder-text">Photo</span></div>
+    <div class="photo-cell image-slot image-menu-champagne-gold"><span class="placeholder-text">Photo</span></div>
+  </div>
+
+  <div class="danmaku-section" id="danmakuArea"></div>
+</section>
+
+<footer>
+  <div class="gold-divider wide"></div>
+  <div style="height:30px"></div>
+  <div class="footer-logo">SUDONPO</div>
+  <div class="footer-addr">泰坦伺服器 &middot; 穹頂皓天 &middot; 10區 30號</div>
+  <div class="footer-copy">&copy; 2026 SUDONPO Exclusive Lounge. All Rights Reserved.</div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+function buildCarousel(trackId, count) {
+  const track = document.getElementById(trackId);
+  let html = '';
+  for (let i = 0; i < count * 2; i++) {
+    html += `<div class="carousel-item image-slot image-menu-whisky"><span class="placeholder-text">Guest ${(i % count) + 1}</span></div>`;
+  }
+  track.innerHTML = html;
+}
+buildCarousel('track1', 8);
+buildCarousel('track2', 8);
+
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObserver.observe(el));
+
+const heroGlitter = document.getElementById('heroGlitter');
+for (let i = 0; i < 40; i++) {
+  const g = document.createElement('div');
+  g.className = i % 3 === 0 ? 'glitter-float' : 'glitter';
+  g.style.left = Math.random() * 100 + '%';
+  g.style.top = Math.random() * 100 + '%';
+  g.style.animationDelay = (Math.random() * 8) + 's';
+  g.style.animationDuration = (4 + Math.random() * 6) + 's';
+  const size = (1 + Math.random() * 2.5);
+  g.style.width = size + 'px';
+  g.style.height = size + 'px';
+  heroGlitter.appendChild(g);
+}
+
+const sparkleContainer = document.getElementById('sparkles');
+for (let i = 0; i < 20; i++) {
+  const s = document.createElement('div');
+  s.className = 'sparkle';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.animationDelay = (Math.random() * 3) + 's';
+  s.style.animationDuration = (2 + Math.random() * 2) + 's';
+  s.style.width = s.style.height = (1 + Math.random() * 3) + 'px';
+  sparkleContainer.appendChild(s);
+}
+
+const comments = [
+  { name: '月影', text: '這裡的氛圍真的太棒了，每次來都捨不得走！' },
+  { name: '星河', text: '特調超好喝，調酒師手藝一流。' },
+  { name: '夜風', text: '上次包場體驗超級奢華，朋友們都驚艷了！' },
+  { name: '霜華', text: '服務超細心，每位 Host 都非常專業。' },
+  { name: '焰舞', text: '拍立得的框也太精美了吧，收藏起來！' },
+  { name: '暮光', text: '香檳塔的儀式感滿分，值得體驗。' },
+  { name: '雲嵐', text: '威士忌的選品很有品味，推薦！' },
+  { name: '幻夢', text: '第一次來就被驚豔到，會再回來。' },
+  { name: '碧落', text: '指名服務真的太特別了，獨一無二的體驗。' },
+  { name: '煙雨', text: '點心好吃到不行，每次都吃光光。' },
+  { name: '紫陌', text: 'SUDONPO，夜生活的頂級選擇。' },
+  { name: '凌霄', text: '環境超美超有質感，拍照超好看！' },
+];
+
+const danmakuArea = document.getElementById('danmakuArea');
+const trackCount = 5;
+const areaH = 300;
+
+for (let t = 0; t < trackCount; t++) {
+  const track = document.createElement('div');
+  track.className = 'danmaku-track';
+  track.style.top = (t * (areaH / trackCount) + 10) + 'px';
+
+  const duration = 25 + Math.random() * 15;
+  const direction = t % 2 === 0 ? 'danmakuL' : 'danmakuR';
+  track.style.animation = `${direction} ${duration}s linear infinite`;
+  track.style.animationDelay = (-Math.random() * duration) + 's';
+
+  let inner = '';
+  const perTrack = 4;
+  for (let c = 0; c < perTrack * 2; c++) {
+    const cm = comments[(t * perTrack + c) % comments.length];
+    const initial = cm.name[0];
+    inner += `<div class="danmaku-comment"><div class="avatar">${initial}</div><div class="text"><span class="name">${cm.name}</span>${cm.text}</div></div>`;
+  }
+  track.innerHTML = inner;
+  danmakuArea.appendChild(track);
+}
+
+const style = document.createElement('style');
+style.textContent = `
+@keyframes danmakuL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes danmakuR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+`;
+document.head.appendChild(style);
+
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (!href || !href.startsWith('#')) {
+      return;
+    }
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+
 </body>
 </html>

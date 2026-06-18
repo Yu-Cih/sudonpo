@@ -34,6 +34,10 @@ tabBtns.forEach(btn => {
 
 // Navbar 滾動效果
 window.addEventListener('scroll', () => {
-  const header = document.querySelector('header');
-  header.style.boxShadow = window.scrollY > 10 ? '0 2px 12px rgba(0,0,0,0.3)' : 'none';
+  const navbarShell = document.getElementById('mainNav') || document.querySelector('header');
+  if (!navbarShell) {
+    return;
+  }
+
+  navbarShell.style.boxShadow = window.scrollY > 10 ? '0 2px 12px rgba(0,0,0,0.3)' : 'none';
 });
