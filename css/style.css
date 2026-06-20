@@ -133,7 +133,7 @@ header {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../assets/images/floor1-hero.jpg');
+  background-image: url('../assets/images/floor1-hero.png');
   background-size: cover;
   background-position: center;
   opacity: 0.4;
@@ -536,49 +536,49 @@ header {
 }
 
 /* ===== Image Mapping ===== */
-.image-floor1-hero { background-image: url('../assets/images/floor1-hero.jpg'); }
-.image-floor1-about { background-image: url('../assets/images/floor1-about.jpg'); }
+.image-floor1-hero { background-image: url('../assets/images/floor1-hero.png'); }
+.image-floor1-about { background-image: url('../assets/images/floor1-about.png'); }
 
-.image-team-founder { background-image: url('../assets/images/team-founder.jpg'); }
-.image-team-ceo { background-image: url('../assets/images/team-ceo.jpg'); }
-.image-host-yuzu { background-image: url('../assets/images/host-yuzu.jpg'); }
-.image-host-akira { background-image: url('../assets/images/host-akira.jpg'); }
-.image-host-noir { background-image: url('../assets/images/host-noir.jpg'); }
+.image-team-founder { background-image: url('../assets/images/team-founder.png'); }
+.image-team-ceo { background-image: url('../assets/images/team-ceo.png'); }
+.image-host-yuzu { background-image: url('../assets/images/host-yuzu.png'); }
+.image-host-akira { background-image: url('../assets/images/host-akira.png'); }
+.image-host-noir { background-image: url('../assets/images/host-noir.png'); }
 
-.image-vip-weekly { background-image: url('../assets/images/vip-weekly.jpg'); }
+.image-vip-weekly { background-image: url('../assets/images/vip-weekly.png'); }
 
-.image-menu-entrance { background-image: url('../assets/images/menu-entrance.jpg'); }
-.image-menu-polaroid { background-image: url('../assets/images/menu-polaroid.jpg'); }
-.image-menu-popper { background-image: url('../assets/images/menu-popper.jpg'); }
-.image-menu-champagne { background-image: url('../assets/images/menu-champagne.jpg'); }
-.image-menu-cocktail { background-image: url('../assets/images/menu-cocktail.jpg'); }
-.image-menu-dessert { background-image: url('../assets/images/menu-dessert.jpg'); }
-.image-menu-service { background-image: url('../assets/images/menu-service.jpg'); }
+.image-menu-entrance { background-image: url('../assets/images/menu-entrance.png'); }
+.image-menu-polaroid { background-image: url('../assets/images/menu-polaroid.png'); }
+.image-menu-popper { background-image: url('../assets/images/menu-popper.png'); }
+.image-menu-champagne { background-image: url('../assets/images/menu-champagne.png'); }
+.image-menu-cocktail { background-image: url('../assets/images/menu-cocktail.png'); }
+.image-menu-dessert { background-image: url('../assets/images/menu-dessert.png'); }
+.image-menu-service { background-image: url('../assets/images/menu-service.png'); }
 
-.image-menu-whisky { background-image: url('../assets/images/menu-whisky.jpg'); }
-.image-menu-brandy { background-image: url('../assets/images/menu-brandy.jpg'); }
-.image-menu-tequila { background-image: url('../assets/images/menu-tequila.jpg'); }
-.image-menu-vodka { background-image: url('../assets/images/menu-vodka.jpg'); }
-.image-menu-mojito { background-image: url('../assets/images/menu-mojito.jpg'); }
-.image-menu-martini { background-image: url('../assets/images/menu-martini.jpg'); }
-.image-menu-negroni { background-image: url('../assets/images/menu-negroni.jpg'); }
-.image-menu-champagne-silver { background-image: url('../assets/images/menu-champagne-silver.jpg'); }
-.image-menu-champagne-gold { background-image: url('../assets/images/menu-champagne-gold.jpg'); }
-.image-menu-champagne-crown { background-image: url('../assets/images/menu-champagne-crown.jpg'); }
+.image-menu-whisky { background-image: url('../assets/images/menu-whisky.png'); }
+.image-menu-brandy { background-image: url('../assets/images/menu-brandy.png'); }
+.image-menu-tequila { background-image: url('../assets/images/menu-tequila.png'); }
+.image-menu-vodka { background-image: url('../assets/images/menu-vodka.png'); }
+.image-menu-mojito { background-image: url('../assets/images/menu-mojito.png'); }
+.image-menu-martini { background-image: url('../assets/images/menu-martini.png'); }
+.image-menu-negroni { background-image: url('../assets/images/menu-negroni.png'); }
+.image-menu-champagne-silver { background-image: url('../assets/images/menu-champagne-silver.png'); }
+.image-menu-champagne-gold { background-image: url('../assets/images/menu-champagne-gold.png'); }
+.image-menu-champagne-crown { background-image: url('../assets/images/menu-champagne-crown.png'); }
 
-.image-voices-1 { background-image: url('../assets/images/voices-1.jpg'); }
-.image-voices-2 { background-image: url('../assets/images/voices-2.jpg'); }
-.image-voices-3 { background-image: url('../assets/images/voices-3.jpg'); }
-.image-voices-4 { background-image: url('../assets/images/voices-4.jpg'); }
-.image-voices-5 { background-image: url('../assets/images/voices-5.jpg'); }
-.image-voices-6 { background-image: url('../assets/images/voices-6.jpg'); }
-.image-voices-7 { background-image: url('../assets/images/voices-7.jpg'); }
-.image-voices-8 { background-image: url('../assets/images/voices-8.jpg'); }
-.image-voices-9 { background-image: url('../assets/images/voices-9.jpg'); }
+.image-voices-1 { background-image: url('../assets/images/voices-1.png'); }
+.image-voices-2 { background-image: url('../assets/images/voices-2.png'); }
+.image-voices-3 { background-image: url('../assets/images/voices-3.png'); }
+.image-voices-4 { background-image: url('../assets/images/voices-4.png'); }
+.image-voices-5 { background-image: url('../assets/images/voices-5.png'); }
+.image-voices-6 { background-image: url('../assets/images/voices-6.png'); }
+.image-voices-7 { background-image: url('../assets/images/voices-7.png'); }
+.image-voices-8 { background-image: url('../assets/images/voices-8.png'); }
+.image-voices-9 { background-image: url('../assets/images/voices-9.png'); }
 
-.image-vvip-rank-1 { background-image: url('../assets/images/vvip-rank-1.jpg'); }
-.image-vvip-rank-2 { background-image: url('../assets/images/vvip-rank-2.jpg'); }
-.image-vvip-rank-3 { background-image: url('../assets/images/vvip-rank-3.jpg'); }
+.image-vvip-rank-1 { background-image: url('../assets/images/vvip-rank-1.png'); }
+.image-vvip-rank-2 { background-image: url('../assets/images/vvip-rank-2.png'); }
+.image-vvip-rank-3 { background-image: url('../assets/images/vvip-rank-3.png'); }
 
 /* ===== Contact ===== */
 .contact-grid {
@@ -1167,6 +1167,7 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
 }
 
 #vip,
+#guestbook,
 #voices {
   background: var(--black);
   position: relative;
@@ -1467,6 +1468,132 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
   opacity: 0.75;
 }
 
+#guestbook {
+  padding-bottom: 20px;
+}
+
+.guestbook-panel {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.guestbook-form {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(220px, 2fr) auto;
+  gap: 14px;
+  align-items: end;
+  padding: 24px;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.05), rgba(26, 26, 26, 0.84));
+}
+
+.guestbook-field {
+  display: grid;
+  gap: 8px;
+}
+
+.guestbook-field span {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.guestbook-field input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 2px;
+  background: rgba(10, 10, 10, 0.72);
+  color: var(--white);
+  font: inherit;
+  font-size: 15px;
+  letter-spacing: 1px;
+  outline: none;
+  padding: 10px 12px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.guestbook-field input:focus {
+  border-color: rgba(201, 168, 76, 0.58);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.08);
+}
+
+.guestbook-field input::placeholder {
+  color: rgba(184, 168, 138, 0.45);
+}
+
+.guestbook-submit {
+  min-height: 44px;
+  border: 1px solid rgba(201, 168, 76, 0.38);
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #140d05;
+  cursor: pointer;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  padding: 0 22px;
+  transition: filter 0.25s, transform 0.25s;
+  white-space: nowrap;
+}
+
+.guestbook-submit:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.guestbook-status {
+  min-height: 28px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 12px 4px 0;
+  text-align: center;
+}
+
+.guestbook-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.guestbook-entry,
+.guestbook-empty {
+  border: 1px solid rgba(201, 168, 76, 0.08);
+  background: rgba(20, 20, 20, 0.72);
+  color: var(--white-dim);
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 12px 16px;
+}
+
+.guestbook-entry {
+  display: grid;
+  grid-template-columns: minmax(56px, auto) 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.guestbook-entry-name {
+  color: var(--gold);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.guestbook-entry-text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.guestbook-empty {
+  text-align: center;
+  opacity: 0.7;
+}
+
 .photo-grid {
   max-width: 700px;
   margin: 0 auto 60px;
@@ -1677,6 +1804,7 @@ footer .footer-copy {
   .team-tier,
   .vip-content,
   #menu .menu-grid,
+  .guestbook-panel,
   .photo-grid {
     padding-left: 20px;
     padding-right: 20px;
@@ -1711,5 +1839,19 @@ footer .footer-copy {
 
   #menu .menu-price {
     font-size: 16px;
+  }
+
+  .guestbook-form {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .guestbook-submit {
+    width: 100%;
+  }
+
+  .guestbook-entry {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }

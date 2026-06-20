@@ -14,6 +14,7 @@
     <li><a href="#team"><span class="nav-label-en">Team</span><span class="nav-label-zh">經營團隊</span></a></li>
     <li><a href="#vip"><span class="nav-label-en">Weekly VIP</span><span class="nav-label-zh">本週VIP</span></a></li>
     <li><a href="#menu"><span class="nav-label-en">Menu</span><span class="nav-label-zh">販售項目</span></a></li>
+    <li><a href="#guestbook"><span class="nav-label-en">Board</span><span class="nav-label-zh">留言板</span></a></li>
     <li><a href="#voices"><span class="nav-label-en">Voices</span><span class="nav-label-zh">客之聲</span></a></li>
     <li><a href="chapel.html"><span class="nav-label-en">Chapel</span><span class="nav-label-zh">地下教堂</span></a></li>
   </ul>
@@ -285,6 +286,39 @@
   </div>
 
   <div class="cta-arrow" style="padding-top:50px">
+    <a href="#guestbook">
+      <svg viewBox="0 0 32 32">
+        <line x1="16" y1="4" x2="16" y2="26" />
+        <polyline points="8,18 16,26 24,18" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section id="guestbook">
+  <div class="section-header reveal">
+    <h2>Board</h2>
+    <div class="sub">留 言 板</div>
+  </div>
+
+  <div class="guestbook-panel reveal">
+    <form class="guestbook-form" id="guestbookForm" autocomplete="off">
+      <label class="guestbook-field">
+        <span>ID</span>
+        <input id="guestName" name="guestName" type="text" maxlength="5" required placeholder="最多 5 字">
+      </label>
+      <label class="guestbook-field">
+        <span>Message</span>
+        <input id="guestMessage" name="guestMessage" type="text" maxlength="20" required placeholder="最多 20 字">
+      </label>
+      <button class="guestbook-submit" type="submit">送出留言</button>
+    </form>
+
+    <p class="guestbook-status" id="guestbookStatus" aria-live="polite"></p>
+    <div class="guestbook-list" id="guestbookList" aria-label="近期留言"></div>
+  </div>
+
+  <div class="cta-arrow" style="padding-top:50px">
     <a href="#voices">
       <svg viewBox="0 0 32 32">
         <line x1="16" y1="4" x2="16" y2="26" />
@@ -372,7 +406,7 @@ for (let i = 0; i < 20; i++) {
   sparkleContainer.appendChild(s);
 }
 
-const comments = [
+const defaultComments = [
   { name: '月影', text: '這裡的氛圍真的太棒了，每次來都捨不得走！' },
   { name: '星河', text: '特調超好喝，調酒師手藝一流。' },
   { name: '夜風', text: '上次包場體驗超級奢華，朋友們都驚艷了！' },
@@ -390,8 +424,67 @@ const comments = [
 const danmakuArea = document.getElementById('danmakuArea');
 const trackCount = 5;
 const areaH = 300;
+const guestbookKey = 'sudonpoGuestbookComments';
+const guestbookForm = document.getElementById('guestbookForm');
+const guestNameInput = document.getElementById('guestName');
+const guestMessageInput = document.getElementById('guestMessage');
+const guestbookStatus = document.getElementById('guestbookStatus');
+const guestbookList = document.getElementById('guestbookList');
 
-for (let t = 0; t < trackCount; t++) {
+function clampText(value, maxLength) {
+  return Array.from(value.trim().replace(/[\u0000-\u001f\u007f]/g, '')).slice(0, maxLength).join('');
+}
+
+function loadGuestComments() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(guestbookKey) || '[]');
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+    return parsed
+      .map(item => ({
+        name: clampText(String(item.name || ''), 5),
+        text: clampText(String(item.text || ''), 20),
+      }))
+      .filter(item => item.name && item.text);
+  } catch {
+    return [];
+  }
+}
+
+function saveGuestComments(comments) {
+  localStorage.setItem(guestbookKey, JSON.stringify(comments.slice(0, 50)));
+}
+
+function getAllComments() {
+  return [...loadGuestComments(), ...defaultComments];
+}
+
+function createDanmakuComment(comment) {
+  const item = document.createElement('div');
+  item.className = 'danmaku-comment';
+
+  const avatar = document.createElement('div');
+  avatar.className = 'avatar';
+  avatar.textContent = Array.from(comment.name)[0] || '?';
+
+  const text = document.createElement('div');
+  text.className = 'text';
+
+  const name = document.createElement('span');
+  name.className = 'name';
+  name.textContent = comment.name;
+
+  text.append(name, document.createTextNode(comment.text));
+  item.append(avatar, text);
+  return item;
+}
+
+function renderDanmaku() {
+  const comments = getAllComments();
+  danmakuArea.replaceChildren();
+
+  for (let t = 0; t < trackCount; t++) {
   const track = document.createElement('div');
   track.className = 'danmaku-track';
   track.style.top = (t * (areaH / trackCount) + 10) + 'px';
@@ -401,16 +494,67 @@ for (let t = 0; t < trackCount; t++) {
   track.style.animation = `${direction} ${duration}s linear infinite`;
   track.style.animationDelay = (-Math.random() * duration) + 's';
 
-  let inner = '';
   const perTrack = 4;
   for (let c = 0; c < perTrack * 2; c++) {
     const cm = comments[(t * perTrack + c) % comments.length];
-    const initial = cm.name[0];
-    inner += `<div class="danmaku-comment"><div class="avatar">${initial}</div><div class="text"><span class="name">${cm.name}</span>${cm.text}</div></div>`;
+    track.appendChild(createDanmakuComment(cm));
   }
-  track.innerHTML = inner;
   danmakuArea.appendChild(track);
+  }
 }
+
+function renderGuestbookList() {
+  const guestComments = loadGuestComments();
+  guestbookList.replaceChildren();
+
+  if (!guestComments.length) {
+    const empty = document.createElement('p');
+    empty.className = 'guestbook-empty';
+    empty.textContent = '尚無留言';
+    guestbookList.appendChild(empty);
+    return;
+  }
+
+  guestComments.slice(0, 6).forEach(comment => {
+    const item = document.createElement('div');
+    item.className = 'guestbook-entry';
+
+    const name = document.createElement('span');
+    name.className = 'guestbook-entry-name';
+    name.textContent = comment.name;
+
+    const text = document.createElement('span');
+    text.className = 'guestbook-entry-text';
+    text.textContent = comment.text;
+
+    item.append(name, text);
+    guestbookList.appendChild(item);
+  });
+}
+
+guestbookForm.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const name = clampText(guestNameInput.value, 5);
+  const text = clampText(guestMessageInput.value, 20);
+
+  if (!name || !text) {
+    guestbookStatus.textContent = '請輸入 ID 與留言';
+    return;
+  }
+
+  const comments = loadGuestComments();
+  comments.unshift({ name, text });
+  saveGuestComments(comments);
+
+  guestbookForm.reset();
+  guestbookStatus.textContent = '留言已送出';
+  renderGuestbookList();
+  renderDanmaku();
+});
+
+renderGuestbookList();
+renderDanmaku();
 
 const style = document.createElement('style');
 style.textContent = `
