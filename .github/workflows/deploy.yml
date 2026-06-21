@@ -19,15 +19,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Inject Supabase credentials
-        run: |
-          cat > js/config.local.js << EOF
-          window.supabaseClient = supabase.createClient(
-            '${{ secrets.SUPABASE_URL }}',
-            '${{ secrets.SUPABASE_ANON_KEY }}'
-          );
-          EOF
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

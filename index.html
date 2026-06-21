@@ -359,7 +359,12 @@
   <div class="footer-copy">&copy; 2026 SUDONPO Exclusive Lounge. All Rights Reserved.</div>
 </footer>
 
-<script src="js/config.local.js"></script>
+<script>
+const supabaseClient = supabase.createClient(
+  'https://lwwbnfvseggakyanyrkf.supabase.co',
+  'sb_publishable_PGeFuPabOqjtL9jPbeCVzQ_oV9Xb0--'
+);
+</script>
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
