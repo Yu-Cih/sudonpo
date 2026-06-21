@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SUDONPO — Exclusive Lounge</title>
 <link rel="stylesheet" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -14,8 +15,8 @@
     <li><a href="#team"><span class="nav-label-en">Team</span><span class="nav-label-zh">經營團隊</span></a></li>
     <li><a href="#vip"><span class="nav-label-en">Weekly VIP</span><span class="nav-label-zh">本週VIP</span></a></li>
     <li><a href="#menu"><span class="nav-label-en">Menu</span><span class="nav-label-zh">販售項目</span></a></li>
-    <li><a href="#guestbook"><span class="nav-label-en">Board</span><span class="nav-label-zh">留言板</span></a></li>
-    <li><a href="#voices"><span class="nav-label-en">Voices</span><span class="nav-label-zh">客之聲</span></a></li>
+    <li><a href="#voice_photos"><span class="nav-label-en">Tipsy Moment</span><span class="nav-label-zh">微醺瞬拍</span></a></li>
+    <li><a href="#guestbook"><span class="nav-label-en">Voices</span><span class="nav-label-zh">客之聲</span></a></li>
     <li><a href="chapel.html"><span class="nav-label-en">Chapel</span><span class="nav-label-zh">地下教堂</span></a></li>
   </ul>
 </nav>
@@ -72,6 +73,7 @@
     <p>泰坦伺服器 &nbsp;&middot;&nbsp; 穹頂皓天 &nbsp;&middot;&nbsp; 10區 30號</p>
   </div>
 
+  <!-- 這邊原本是中間的 Guest 我先拿掉
   <div class="carousel-section">
     <div class="carousel-track-wrapper">
       <div class="carousel-track" id="track1"></div>
@@ -87,6 +89,7 @@
       <span>— 文字內容待補 —</span>
     </div>
   </div>
+  -->
 
   <div class="cta-arrow">
     <a href="#team">
@@ -286,7 +289,7 @@
   </div>
 
   <div class="cta-arrow" style="padding-top:50px">
-    <a href="#guestbook">
+    <a href="#voice_photos">
       <svg viewBox="0 0 32 32">
         <line x1="16" y1="4" x2="16" y2="26" />
         <polyline points="8,18 16,26 24,18" />
@@ -295,43 +298,10 @@
   </div>
 </section>
 
-<section id="guestbook">
+<section id="voice_photos">
   <div class="section-header reveal">
-    <h2>Board</h2>
-    <div class="sub">留 言 板</div>
-  </div>
-
-  <div class="guestbook-panel reveal">
-    <form class="guestbook-form" id="guestbookForm" autocomplete="off">
-      <label class="guestbook-field">
-        <span>ID</span>
-        <input id="guestName" name="guestName" type="text" maxlength="5" required placeholder="最多 5 字">
-      </label>
-      <label class="guestbook-field">
-        <span>Message</span>
-        <input id="guestMessage" name="guestMessage" type="text" maxlength="20" required placeholder="最多 20 字">
-      </label>
-      <button class="guestbook-submit" type="submit">送出留言</button>
-    </form>
-
-    <p class="guestbook-status" id="guestbookStatus" aria-live="polite"></p>
-    <div class="guestbook-list" id="guestbookList" aria-label="近期留言"></div>
-  </div>
-
-  <div class="cta-arrow" style="padding-top:50px">
-    <a href="#voices">
-      <svg viewBox="0 0 32 32">
-        <line x1="16" y1="4" x2="16" y2="26" />
-        <polyline points="8,18 16,26 24,18" />
-      </svg>
-    </a>
-  </div>
-</section>
-
-<section id="voices">
-  <div class="section-header reveal">
-    <h2>Voices</h2>
-    <div class="sub">客 之 聲</div>
+    <h2>Tipsy Moment</h2>
+    <div class="sub">微 醺 瞬 拍</div>
   </div>
 
   <div class="photo-grid reveal">
@@ -346,7 +316,39 @@
     <div class="photo-cell image-slot image-menu-champagne-gold"><span class="placeholder-text">Photo</span></div>
   </div>
 
-  <div class="danmaku-section" id="danmakuArea"></div>
+  <div class="cta-arrow" style="padding-top:50px">
+    <a href="#guestbook">
+      <svg viewBox="0 0 32 32">
+        <line x1="16" y1="4" x2="16" y2="26" />
+        <polyline points="8,18 16,26 24,18" />
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section id="guestbook">
+  <div class="section-header reveal">
+    <h2>Voices</h2>
+    <div class="sub">客 之 聲</div>
+    <div class="danmaku-section" id="danmakuArea"></div>
+  </div>
+
+  <div class="guestbook-panel reveal">
+    <form class="guestbook-form" id="guestbookForm" autocomplete="off">
+      <label class="guestbook-field">
+        <span>ID</span>
+        <input id="guestName" name="guestName" type="text" maxlength="6" required placeholder="最多 6 字">
+      </label>
+      <label class="guestbook-field">
+        <span>Message</span>
+        <input id="guestMessage" name="guestMessage" type="text" maxlength="20" required placeholder="最多 20 字">
+      </label>
+      <button class="guestbook-submit" type="submit">送出留言</button>
+    </form>
+
+    <p class="guestbook-status" id="guestbookStatus" aria-live="polite"></p>
+  </div>
+
 </section>
 
 <footer>
@@ -357,6 +359,7 @@
   <div class="footer-copy">&copy; 2026 SUDONPO Exclusive Lounge. All Rights Reserved.</div>
 </footer>
 
+<script src="js/config.local.js"></script>
 <script>
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
@@ -365,6 +368,7 @@ window.addEventListener('scroll', () => {
 
 function buildCarousel(trackId, count) {
   const track = document.getElementById(trackId);
+  if (!track) return;
   let html = '';
   for (let i = 0; i < count * 2; i++) {
     html += `<div class="carousel-item image-slot image-menu-whisky"><span class="placeholder-text">Guest ${(i % count) + 1}</span></div>`;
@@ -406,58 +410,55 @@ for (let i = 0; i < 20; i++) {
   sparkleContainer.appendChild(s);
 }
 
-const defaultComments = [
-  { name: '月影', text: '這裡的氛圍真的太棒了，每次來都捨不得走！' },
-  { name: '星河', text: '特調超好喝，調酒師手藝一流。' },
-  { name: '夜風', text: '上次包場體驗超級奢華，朋友們都驚艷了！' },
-  { name: '霜華', text: '服務超細心，每位 Host 都非常專業。' },
-  { name: '焰舞', text: '拍立得的框也太精美了吧，收藏起來！' },
-  { name: '暮光', text: '香檳塔的儀式感滿分，值得體驗。' },
-  { name: '雲嵐', text: '威士忌的選品很有品味，推薦！' },
-  { name: '幻夢', text: '第一次來就被驚豔到，會再回來。' },
-  { name: '碧落', text: '指名服務真的太特別了，獨一無二的體驗。' },
-  { name: '煙雨', text: '點心好吃到不行，每次都吃光光。' },
-  { name: '紫陌', text: 'SUDONPO，夜生活的頂級選擇。' },
-  { name: '凌霄', text: '環境超美超有質感，拍照超好看！' },
-];
-
 const danmakuArea = document.getElementById('danmakuArea');
 const trackCount = 5;
 const areaH = 300;
-const guestbookKey = 'sudonpoGuestbookComments';
 const guestbookForm = document.getElementById('guestbookForm');
 const guestNameInput = document.getElementById('guestName');
 const guestMessageInput = document.getElementById('guestMessage');
 const guestbookStatus = document.getElementById('guestbookStatus');
-const guestbookList = document.getElementById('guestbookList');
-
 function clampText(value, maxLength) {
   return Array.from(value.trim().replace(/[\u0000-\u001f\u007f]/g, '')).slice(0, maxLength).join('');
 }
 
-function loadGuestComments() {
-  try {
-    const parsed = JSON.parse(localStorage.getItem(guestbookKey) || '[]');
-    if (!Array.isArray(parsed)) {
-      return [];
-    }
-    return parsed
-      .map(item => ({
-        name: clampText(String(item.name || ''), 5),
-        text: clampText(String(item.text || ''), 20),
-      }))
-      .filter(item => item.name && item.text);
-  } catch {
+async function loadGuestComments() {
+  if (!supabaseClient) return [];
+
+  const { data, error } = await supabaseClient
+    .from('comments')
+    .select('user_name, message')
+    .order('created_at', { ascending: false })
+    .limit(50);
+
+  if (error) {
+    console.error('Supabase load error:', error);
     return [];
   }
+
+  return (data || [])
+    .map(item => ({
+      name: clampText(String(item.user_name || ''), 5),
+      text: clampText(String(item.message || ''), 20),
+    }))
+    .filter(item => item.name && item.text);
 }
 
-function saveGuestComments(comments) {
-  localStorage.setItem(guestbookKey, JSON.stringify(comments.slice(0, 50)));
+async function saveGuestComment(name, text) {
+  if (!supabaseClient) return false;
+
+  const { error } = await supabaseClient
+    .from('comments')
+    .insert({ user_name: name, message: text });
+
+  if (error) {
+    console.error('Supabase insert error:', error);
+    return false;
+  }
+  return true;
 }
 
-function getAllComments() {
-  return [...loadGuestComments(), ...defaultComments];
+async function getAllComments() {
+  return await loadGuestComments();
 }
 
 function createDanmakuComment(comment) {
@@ -480,9 +481,26 @@ function createDanmakuComment(comment) {
   return item;
 }
 
-function renderDanmaku() {
-  const comments = getAllComments();
+async function renderDanmaku() {
+  const comments = await getAllComments();
   danmakuArea.replaceChildren();
+
+  if (!comments.length) {
+    const empty = document.createElement('p');
+    empty.className = 'guestbook-empty';
+    empty.textContent = '尚無留言，搶頭香！';
+    empty.style.textAlign = 'center';
+    empty.style.padding = '80px 0';
+    danmakuArea.appendChild(empty);
+    return;
+  }
+
+  const minSlots = 20;
+  const items = [];
+  while (items.length < minSlots) {
+    items.push(...comments);
+  }
+  items.length = minSlots;
 
   for (let t = 0; t < trackCount; t++) {
   const track = document.createElement('div');
@@ -496,43 +514,14 @@ function renderDanmaku() {
 
   const perTrack = 4;
   for (let c = 0; c < perTrack * 2; c++) {
-    const cm = comments[(t * perTrack + c) % comments.length];
+    const cm = items[(t * perTrack + c) % items.length];
     track.appendChild(createDanmakuComment(cm));
   }
   danmakuArea.appendChild(track);
   }
 }
 
-function renderGuestbookList() {
-  const guestComments = loadGuestComments();
-  guestbookList.replaceChildren();
-
-  if (!guestComments.length) {
-    const empty = document.createElement('p');
-    empty.className = 'guestbook-empty';
-    empty.textContent = '尚無留言';
-    guestbookList.appendChild(empty);
-    return;
-  }
-
-  guestComments.slice(0, 6).forEach(comment => {
-    const item = document.createElement('div');
-    item.className = 'guestbook-entry';
-
-    const name = document.createElement('span');
-    name.className = 'guestbook-entry-name';
-    name.textContent = comment.name;
-
-    const text = document.createElement('span');
-    text.className = 'guestbook-entry-text';
-    text.textContent = comment.text;
-
-    item.append(name, text);
-    guestbookList.appendChild(item);
-  });
-}
-
-guestbookForm.addEventListener('submit', event => {
+guestbookForm.addEventListener('submit', async event => {
   event.preventDefault();
 
   const name = clampText(guestNameInput.value, 5);
@@ -543,17 +532,15 @@ guestbookForm.addEventListener('submit', event => {
     return;
   }
 
-  const comments = loadGuestComments();
-  comments.unshift({ name, text });
-  saveGuestComments(comments);
+  const ok = await saveGuestComment(name, text);
+  guestbookStatus.textContent = ok ? '留言已送出' : '送出失敗，請稍後再試';
 
-  guestbookForm.reset();
-  guestbookStatus.textContent = '留言已送出';
-  renderGuestbookList();
-  renderDanmaku();
+  if (ok) {
+    guestbookForm.reset();
+    await renderDanmaku();
+  }
 });
 
-renderGuestbookList();
 renderDanmaku();
 
 const style = document.createElement('style');

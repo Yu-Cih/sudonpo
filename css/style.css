@@ -1555,45 +1555,6 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
   text-align: center;
 }
 
-.guestbook-list {
-  display: grid;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.guestbook-entry,
-.guestbook-empty {
-  border: 1px solid rgba(201, 168, 76, 0.08);
-  background: rgba(20, 20, 20, 0.72);
-  color: var(--white-dim);
-  font-size: 14px;
-  letter-spacing: 1px;
-  padding: 12px 16px;
-}
-
-.guestbook-entry {
-  display: grid;
-  grid-template-columns: minmax(56px, auto) 1fr;
-  gap: 14px;
-  align-items: center;
-}
-
-.guestbook-entry-name {
-  color: var(--gold);
-  font-weight: 600;
-  overflow-wrap: anywhere;
-}
-
-.guestbook-entry-text {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.guestbook-empty {
-  text-align: center;
-  opacity: 0.7;
-}
-
 .photo-grid {
   max-width: 700px;
   margin: 0 auto 60px;
@@ -1848,10 +1809,5 @@ footer .footer-copy {
 
   .guestbook-submit {
     width: 100%;
-  }
-
-  .guestbook-entry {
-    grid-template-columns: 1fr;
-    gap: 4px;
   }
 }
