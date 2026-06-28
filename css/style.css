@@ -42,6 +42,12 @@ body {
   background-color: rgba(255, 255, 255, 0.04);
 }
 
+/* Tone colourful emoji down to a silver hue so they blend with the theme */
+.emoji {
+  display: inline-block;
+  filter: grayscale(1) brightness(1.15) opacity(0.85);
+}
+
 /* ===== Navbar ===== */
 header {
   position: fixed;
@@ -133,7 +139,7 @@ header {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url('../assets/images/floor1-hero.png');
+  /* 圖片來源改由 Supabase CDN 提供 */
   background-size: cover;
   background-position: center;
   opacity: 0.4;
@@ -535,50 +541,22 @@ header {
   border-color: rgba(230, 233, 238, 0.6);
 }
 
-/* ===== Image Mapping ===== */
-.image-floor1-hero { background-image: url('../assets/images/floor1-hero.png'); }
-.image-floor1-about { background-image: url('../assets/images/floor1-about.png'); }
+/* ===== Image Mapping =====
+   GitHub repo 圖片來源已移除，改由 Supabase CDN 提供。
+   版位（.image-slot 與各 .image-<name> class）仍保留於 HTML，
+   屆時在此為每個 slot 補回 Supabase 公開網址即可，例如：
+   .image-floor1-hero { background-image: url('https://<project>.supabase.co/storage/v1/object/public/<bucket>/floor1-hero.png'); }
 
-.image-team-founder { background-image: url('../assets/images/team-founder.png'); }
-.image-team-ceo { background-image: url('../assets/images/team-ceo.png'); }
-.image-host-yuzu { background-image: url('../assets/images/host-yuzu.png'); }
-.image-host-akira { background-image: url('../assets/images/host-akira.png'); }
-.image-host-noir { background-image: url('../assets/images/host-noir.png'); }
-
-.image-vip-weekly { background-image: url('../assets/images/vip-weekly.png'); }
-
-.image-menu-entrance { background-image: url('../assets/images/menu-entrance.png'); }
-.image-menu-polaroid { background-image: url('../assets/images/menu-polaroid.png'); }
-.image-menu-popper { background-image: url('../assets/images/menu-popper.png'); }
-.image-menu-champagne { background-image: url('../assets/images/menu-champagne.png'); }
-.image-menu-cocktail { background-image: url('../assets/images/menu-cocktail.png'); }
-.image-menu-dessert { background-image: url('../assets/images/menu-dessert.png'); }
-.image-menu-service { background-image: url('../assets/images/menu-service.png'); }
-
-.image-menu-whisky { background-image: url('../assets/images/menu-whisky.png'); }
-.image-menu-brandy { background-image: url('../assets/images/menu-brandy.png'); }
-.image-menu-tequila { background-image: url('../assets/images/menu-tequila.png'); }
-.image-menu-vodka { background-image: url('../assets/images/menu-vodka.png'); }
-.image-menu-mojito { background-image: url('../assets/images/menu-mojito.png'); }
-.image-menu-martini { background-image: url('../assets/images/menu-martini.png'); }
-.image-menu-negroni { background-image: url('../assets/images/menu-negroni.png'); }
-.image-menu-champagne-silver { background-image: url('../assets/images/menu-champagne-silver.png'); }
-.image-menu-champagne-gold { background-image: url('../assets/images/menu-champagne-gold.png'); }
-.image-menu-champagne-crown { background-image: url('../assets/images/menu-champagne-crown.png'); }
-
-.image-voices-1 { background-image: url('../assets/images/voices-1.png'); }
-.image-voices-2 { background-image: url('../assets/images/voices-2.png'); }
-.image-voices-3 { background-image: url('../assets/images/voices-3.png'); }
-.image-voices-4 { background-image: url('../assets/images/voices-4.png'); }
-.image-voices-5 { background-image: url('../assets/images/voices-5.png'); }
-.image-voices-6 { background-image: url('../assets/images/voices-6.png'); }
-.image-voices-7 { background-image: url('../assets/images/voices-7.png'); }
-.image-voices-8 { background-image: url('../assets/images/voices-8.png'); }
-.image-voices-9 { background-image: url('../assets/images/voices-9.png'); }
-
-.image-vvip-rank-1 { background-image: url('../assets/images/vvip-rank-1.png'); }
-.image-vvip-rank-2 { background-image: url('../assets/images/vvip-rank-2.png'); }
-.image-vvip-rank-3 { background-image: url('../assets/images/vvip-rank-3.png'); }
+   待補的 slot：
+   floor1-hero, floor1-about,
+   team-founder, team-ceo, host-yuzu, host-akira, host-noir,
+   vip-weekly,
+   menu-entrance, menu-polaroid, menu-popper, menu-champagne, menu-cocktail, menu-dessert, menu-service,
+   menu-whisky, menu-brandy, menu-tequila, menu-vodka, menu-mojito, menu-martini, menu-negroni,
+   menu-champagne-silver, menu-champagne-gold, menu-champagne-crown,
+   voices-1 ~ voices-9,
+   vvip-rank-1 ~ vvip-rank-3
+*/
 
 /* ===== Contact ===== */
 .contact-grid {
@@ -1535,6 +1513,14 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
   height: 100%;
   background-size: cover;
   background-position: center;
+}
+
+/* Shown until Supabase photos load (or if a member has no photos yet) */
+.member-slide.is-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.04);
 }
 
 .member-carousel-btn {
