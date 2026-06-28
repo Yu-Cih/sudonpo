@@ -908,7 +908,6 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
 }
 
 .hero-diamond-photo::after,
-.carousel-item::after,
 .team-photo::before,
 .photo-cell::after,
 .vip-photo-area::after {
@@ -920,7 +919,6 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
 }
 
 .hero-diamond-photo .placeholder-text,
-.carousel-item .placeholder-text,
 .team-photo .placeholder-text,
 .photo-cell .placeholder-text,
 .vip-photo-area .placeholder-text {
@@ -1258,66 +1256,6 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
   }
 }
 
-.carousel-section {
-  padding: 60px 0;
-  background: var(--black);
-}
-
-.carousel-track-wrapper {
-  overflow: hidden;
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 16px;
-  width: max-content;
-  animation: scrollLeft 30s linear infinite;
-}
-
-.carousel-track.reverse {
-  animation: scrollRight 35s linear infinite;
-}
-
-.carousel-item {
-  width: 280px;
-  height: 180px;
-  flex: 0 0 auto;
-  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
-  border: 1px solid rgba(198, 203, 212, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.text-content-area {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 60px 40px;
-  position: relative;
-}
-
-.text-placeholder {
-  min-height: 200px;
-  border: 1px dashed rgba(198, 203, 212, 0.15);
-  border-radius: 2px;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.text-placeholder span {
-  color: var(--white-dim);
-  font-size: 13px;
-  letter-spacing: 3px;
-  opacity: 0.45;
-}
-
 .cta-arrow {
   display: flex;
   justify-content: center;
@@ -1554,12 +1492,15 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
 }
 
 .founder-note-body {
-  column-count: 2;
-  column-gap: 54px;
+  display: flex;
+  align-items: flex-start;
+  gap: 54px;
 }
 
-.founder-note-body > * {
-  break-inside: avoid;
+/* Two explicit columns: left ends at「這間店因此誕生 ♡」, right starts after */
+.founder-note-col {
+  flex: 1;
+  min-width: 0;
 }
 
 .founder-note-body p {
@@ -1571,7 +1512,8 @@ nav#mainNav .nav-links a:hover .nav-label-zh {
     align-items: stretch;
   }
   .founder-note-body {
-    column-count: 1;
+    flex-direction: column;
+    gap: 0;
   }
 }
 
@@ -2077,16 +2019,6 @@ footer .footer-copy {
   50% { opacity: 1; transform: scale(1); }
 }
 
-@keyframes scrollLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes scrollRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
 @media (max-width: 768px) {
   nav#mainNav {
     padding: 16px 18px;
@@ -2138,11 +2070,6 @@ footer .footer-copy {
   .address-strip p {
     font-size: 13px;
     letter-spacing: 3px;
-  }
-
-  .carousel-item {
-    width: 220px;
-    height: 142px;
   }
 
   .team-list,
