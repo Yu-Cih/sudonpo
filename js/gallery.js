@@ -1,5 +1,5 @@
 // index.html 的圖片載入邏輯：店員輪播、本週 VIP、微醺瞬拍。
-// 全部從 Supabase Storage 取圖，依賴在 index.html 先初始化好的全域 supabaseClient。
+// 全部從 Supabase Storage 取圖，依賴 js/supabase.js 先初始化好的全域 supabaseClient。
 // 用傳統 <script>（非 module）載入，才能直接用瀏覽器開啟 index.html。
 
 // ===== Team member photo carousels =====

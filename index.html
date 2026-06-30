@@ -466,12 +466,8 @@
   <div class="footer-copy">&copy; 2026 SUDONPO Exclusive Lounge. All Rights Reserved.</div>
 </footer>
 
-<script>
-const supabaseClient = supabase.createClient(
-  'https://pptlvorexginzakrbehm.supabase.co',
-  'sb_publishable_qYEycFbdpPUNwh4DPG0GlQ_XbxCNDVI'
-);
-</script>
+<!-- Supabase 用戶端初始化；需在 supabase CDN 之後、gallery/guestbook 之前 -->
+<script src="js/supabase.js"></script>
 
 <!-- 圖片載入（店員輪播 / 本週 VIP / 微醺瞬拍）；需在 supabaseClient 初始化之後 -->
 <script src="js/gallery.js"></script>

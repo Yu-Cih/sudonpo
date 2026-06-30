@@ -1,6 +1,6 @@
 // index.html 的留言板（客之聲）/ 彈幕系統。
 // 留言存於 Supabase 的 comments 資料表（user_name, message, created_at）；
-// 依賴 index.html 先初始化好的全域 supabaseClient。
+// 依賴 js/supabase.js 先初始化好的全域 supabaseClient。
 // 用傳統 <script>（非 module）載入，才能直接用瀏覽器開啟 index.html。
 
 const danmakuArea = document.getElementById('danmakuArea');
@@ -15,7 +15,7 @@ function clampText(value, maxLength) {
 }
 
 async function loadGuestComments() {
-  if (!supabaseClient) return [];
+  if (typeof supabaseClient === 'undefined' || !supabaseClient) return [];
 
   const { data, error } = await supabaseClient
     .from('comments')
@@ -37,7 +37,7 @@ async function loadGuestComments() {
 }
 
 async function saveGuestComment(name, text) {
-  if (!supabaseClient) return false;
+  if (typeof supabaseClient === 'undefined' || !supabaseClient) return false;
 
   const { error } = await supabaseClient
     .from('comments')
