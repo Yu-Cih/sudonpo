@@ -2,44 +2,6 @@
 
 Use these exact file names. Replace image files with the same names to update the website without editing HTML/CSS.
 
-## Floor 1 Host Lounge (index.html)
-- floor1-hero.jpg
-- floor1-about.jpg
-- team-founder.jpg
-- team-ceo.jpg
-- host-yuzu.jpg
-- host-akira.jpg
-- host-noir.jpg
-- vip-weekly.jpg
-- menu-entrance.jpg
-- menu-polaroid.jpg
-- menu-popper.jpg
-- menu-champagne.jpg
-- menu-whisky.jpg
-- menu-cocktail.jpg
-- menu-dessert.jpg
-- menu-service.jpg
-- menu-brandy.jpg
-- menu-tequila.jpg
-- menu-vodka.jpg
-- menu-mojito.jpg
-- menu-martini.jpg
-- menu-negroni.jpg
-- voices-1.jpg
-- voices-2.jpg
-- voices-3.jpg
-- voices-4.jpg
-- voices-5.jpg
-- voices-6.jpg
-- voices-7.jpg
-- voices-8.jpg
-- voices-9.jpg
-- menu-champagne-silver.jpg
-- menu-champagne-gold.jpg
-- menu-champagne-crown.jpg
-- vvip-rank-1.jpg
-- vvip-rank-2.jpg
-- vvip-rank-3.jpg
 
 ## Dark Chapel (chapel.html)
 - chapel-hero.jpg

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- 沿用主站樣式（銀色金屬主題 + Team 照片框模板） -->
+<link rel="stylesheet" href="css/style.css" />
+<!-- 本頁專屬版面 -->
+<link rel="stylesheet" href="css/dress.css" />
+<!-- Supabase JS 用戶端（禮服圖片改由 Storage 讀取）-->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html#about" aria-label="SUDONPO">
+    <img class="nav-logo-img" src="assets/images/logo-horizontal.png" alt="SUDONPO Club" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about"><span class="nav-label-en">About</span><span class="nav-label-zh">關於本店</span></a></li>
+    <li><a href="index.html#team"><span class="nav-label-en">Team</span><span class="nav-label-zh">經營團隊</span></a></li>
+    <li><a href="dress.html"><span class="nav-label-en">Dress</span><span class="nav-label-zh">禮服推薦</span></a></li>
+    <li><a href="index.html#vip"><span class="nav-label-en">Weekly VIP</span><span class="nav-label-zh">本週VIP</span></a></li>
+    <li><a href="index.html#voice_photos"><span class="nav-label-en">Tipsy Moment</span><span class="nav-label-zh">微醺瞬拍</span></a></li>
+    <li><a href="index.html#guestbook"><span class="nav-label-en">Voices</span><span class="nav-label-zh">客之聲</span></a></li>
+    <li><a href="menu.html"><span class="nav-label-en">Menu</span><span class="nav-label-zh">販售項目</span></a></li>
+    <li><a href="chapel.html"><span class="nav-label-en">Chapel</span><span class="nav-label-zh">地下教堂</span></a></li>
+  </ul>
+</nav>
+
+<!-- 滿版橫幅 Banner（目前放示意圖，之後可替換成正式主視覺） -->
+<div class="dress-banner" role="img" aria-label="禮服推薦主視覺 Banner"></div>
+
+<section id="dress">
+  <div class="section-header reveal">
+    <h2>Dress</h2>
+    <div class="sub">禮 服 推 薦</div>
+  </div>
+
+  <p class="dress-intro reveal">參加 Party，衣櫃的衣服翻來翻去都不滿意！</p>
+
+  <!--
+    照片框：沿用 Team 頁的 .team-photo-frame 銀色金屬框模板。
+    要放上穿搭模特照片時，把對應 .team-photo 的 placeholder 換掉即可：
+      <div class="team-photo image-slot" style="background-image:url('assets/images/dress-1.jpg')"></div>
+    建議比例 3:4（直式全身照）。
+  -->
+  <div class="dress-grid reveal">
+
+    <div class="dress-slot">
+      <div class="team-photo-frame">
+        <div class="team-photo image-slot"><span class="placeholder-text">Photo</span></div>
+        <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+      </div>
+      <div class="dress-caption">Look 01</div>
+    </div>
+
+    <div class="dress-slot">
+      <div class="team-photo-frame">
+        <div class="team-photo image-slot"><span class="placeholder-text">Photo</span></div>
+        <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+      </div>
+      <div class="dress-caption">Look 02</div>
+    </div>
+
+    <div class="dress-slot">
+      <div class="team-photo-frame">
+        <div class="team-photo image-slot"><span class="placeholder-text">Photo</span></div>
+        <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+      </div>
+      <div class="dress-caption">Look 03</div>
+    </div>
+
+    <div class="dress-slot">
+      <div class="team-photo-frame">
+        <div class="team-photo image-slot"><span class="placeholder-text">Photo</span></div>
+        <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+      </div>
+      <div class="dress-caption">Look 04</div>
+    </div>
+
+    <div class="dress-slot">
+      <div class="team-photo-frame">
+        <div class="team-photo image-slot"><span class="placeholder-text">Photo</span></div>
+        <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+      </div>
+      <div class="dress-caption">Look 05</div>
+    </div>
+
+    <div class="dress-slot">
+      <div class="team-photo-frame">
+        <div class="team-photo image-slot"><span class="placeholder-text">Photo</span></div>
+        <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+      </div>
+      <div class="dress-caption">Look 06</div>
+    </div>
+
+  </div>
+
+  <p class="dress-outro reveal">
+    根據我們當日派對主題色，我們會為您搭配好禮服，可於現場購買；<br>
+    換上全新禮服，與公關們一同熱舞吧。
+  </p>
+</section>
+
+<footer>
+  <div class="gold-divider wide"></div>
+  <div style="height:30px"></div>
+  <img class="footer-logo-img" src="assets/images/logo-horizontal.png" alt="SUDONPO Club" />
+  <div class="footer-logo">SUDONPO</div>
+  <div class="footer-addr">泰坦伺服器 &middot; 穹頂皓天 &middot; 10區 30號</div>
+  <div class="footer-copy">&copy; 2026 SUDONPO Exclusive Lounge. All Rights Reserved.</div>
+</footer>
+
+<script>
+// 進場淡入（與主站 .reveal 行為一致）
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+reveals.forEach(el => revealObserver.observe(el));
+
+// 導覽列捲動樣式（與主站一致）
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+
+<!-- 先初始化 supabaseClient，再由 dress.js 從 Storage 讀取禮服圖片 -->
+<script src="js/supabase.js"></script>
+<script src="js/dress.js"></script>
+
+</body>
+</html>

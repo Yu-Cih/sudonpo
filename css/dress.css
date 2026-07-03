@@ -1,0 +1,107 @@
+/* dress.html 專屬版面
+   共用元件（導覽列 / 照片框 / footer / .reveal 等）沿用 css/style.css，
+   此檔僅放「禮服推薦」頁自己的版面樣式。 */
+
+/* 滿版橫幅 Banner（示意圖，可替換） */
+.dress-banner {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 42vw, 560px);
+  background-image: url('../assets/images/dress-banner.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+
+/* 上下淡入黑,讓 Banner 與導覽列/下方區塊銜接更順 */
+.dress-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg,
+    rgba(10, 10, 10, 0.55) 0%,
+    rgba(10, 10, 10, 0) 28%,
+    rgba(10, 10, 10, 0) 60%,
+    rgba(20, 20, 20, 0.95) 100%);
+}
+
+#dress {
+  background: var(--black-light);
+  position: relative;
+  padding-bottom: 90px;
+}
+
+/* 開頭金句 */
+.dress-intro {
+  max-width: 780px;
+  margin: 0 auto 8px;
+  padding: 0 24px;
+  text-align: center;
+  color: var(--white);
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-style: italic;
+  font-size: clamp(19px, 2.4vw, 26px);
+  letter-spacing: 2px;
+  line-height: 1.8;
+}
+
+/* 照片框（沿用 .team-photo-frame 模板，排成自動換行的格狀） */
+.dress-grid {
+  max-width: 1120px;
+  margin: 48px auto 0;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 54px 44px;
+  justify-items: center;
+}
+
+.dress-slot {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dress-grid .team-photo-frame {
+  width: 100%;
+}
+
+/* 直式圖片模組（全身穿搭照） */
+.dress-grid .team-photo {
+  aspect-ratio: 3 / 4;
+}
+
+.dress-caption {
+  margin-top: 22px;
+  color: var(--gold); /* 變數已是銀色 */
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* 結尾說明文字 */
+.dress-outro {
+  max-width: 840px;
+  margin: 64px auto 0;
+  padding: 36px 28px 0;
+  border-top: 1px solid rgba(230, 233, 238, 0.18);
+  text-align: center;
+  color: var(--white-dim);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 2.15;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 760px) {
+  .dress-grid {
+    padding: 0 20px;
+    gap: 40px;
+  }
+  .dress-outro {
+    margin-top: 48px;
+  }
+}
