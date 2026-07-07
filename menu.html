@@ -11,13 +11,21 @@
 </head>
 <body>
 
-<header class="menu-topbar">
-  <a class="back-link" href="index.html"><span class="arrow">&#8249;</span>回主站</a>
-  <a class="topbar-logo" href="index.html" aria-label="SUDONPO">
-    <img src="assets/images/logo-horizontal.png" alt="SUDONPO Club" />
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html#about" aria-label="SUDONPO">
+    <img class="nav-logo-img" src="assets/images/logo-horizontal.png" alt="SUDONPO Club" />
   </a>
-  <div class="topbar-spacer" aria-hidden="true"></div>
-</header>
+  <ul class="nav-links">
+    <li><a href="index.html#about"><span class="nav-label-en">About</span><span class="nav-label-zh">關於本店</span></a></li>
+    <li><a href="index.html#team"><span class="nav-label-en">Team</span><span class="nav-label-zh">經營團隊</span></a></li>
+    <li><a href="index.html#vip"><span class="nav-label-en">Weekly VIP</span><span class="nav-label-zh">本週VIP</span></a></li>
+    <li><a href="index.html#voice_photos"><span class="nav-label-en">Tipsy Moment</span><span class="nav-label-zh">微醺瞬拍</span></a></li>
+    <li><a href="index.html#guestbook"><span class="nav-label-en">Voices</span><span class="nav-label-zh">客之聲</span></a></li>
+    <li><a href="menu.html"><span class="nav-label-en">Menu</span><span class="nav-label-zh">販售項目</span></a></li>
+    <li><a href="dress.html"><span class="nav-label-en">Dress</span><span class="nav-label-zh">禮服推薦</span></a></li>
+    <li><a href="chapel.html"><span class="nav-label-en">Chapel</span><span class="nav-label-zh">地下教堂</span></a></li>
+  </ul>
+</nav>
 
 <main class="menu-wrap">
 
@@ -145,11 +153,18 @@
 
   <div class="menu-foot">
     <div class="addr">泰坦伺服器 &middot; 穹頂皓天 &middot; 10區 30號</div>
-    <a class="foot-back" href="index.html">回到主站</a>
     <div class="copy">&copy; 2026 SUDONPO Exclusive Lounge. All Rights Reserved.</div>
   </div>
 
 </main>
+
+<script>
+// 導覽列捲動樣式（與主站一致）
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
 
 </body>
 </html>

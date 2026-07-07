@@ -42,52 +42,103 @@ body::before {
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
 }
 
-/* ===== Top bar (minimal — customer-facing) ===== */
-.menu-topbar {
-  position: sticky;
+/* ===== Top nav (shared look with main site #mainNav) ===== */
+nav#mainNav {
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 16px 22px;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.96) 0%, rgba(10, 10, 10, 0.75) 75%, transparent 100%);
-  backdrop-filter: blur(8px);
+  justify-content: center;
+  padding: 24px 60px;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 70%, transparent 100%);
+  backdrop-filter: blur(6px);
+  transition: padding 0.4s, background 0.4s;
 }
 
-.back-link {
-  color: var(--gold-dark);
-  font-family: 'Cinzel', serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.3s;
-  white-space: nowrap;
+nav#mainNav.scrolled {
+  padding: 14px 60px;
+  background: rgba(10, 10, 10, 0.97);
 }
 
-.back-link:hover { color: var(--gold); }
-.back-link .arrow { display: inline-block; margin-right: 6px; }
-
-.topbar-logo {
+nav#mainNav .nav-logo {
+  position: absolute;
+  left: 60px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
+  transition: opacity 0.4s, transform 0.4s;
 }
 
-.topbar-logo img {
-  height: 34px;
+nav#mainNav .nav-logo:hover {
+  opacity: 0.78;
+}
+
+nav#mainNav .nav-logo-img {
+  height: 46px;
   width: auto;
   display: block;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+  transition: height 0.4s;
 }
 
-.topbar-spacer { width: 74px; flex: 0 0 auto; }
+nav#mainNav.scrolled .nav-logo-img {
+  height: 36px;
+}
+
+nav#mainNav .nav-links {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+}
+
+nav#mainNav .nav-links a {
+  color: var(--gold);
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav#mainNav .nav-label-en,
+nav#mainNav .nav-label-zh {
+  display: block;
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+nav#mainNav .nav-label-zh {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  opacity: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+nav#mainNav .nav-links a:hover .nav-label-en {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+nav#mainNav .nav-links a:hover .nav-label-zh {
+  opacity: 1;
+  transform: translateX(-50%);
+}
 
 /* ===== Page container ===== */
 .menu-wrap {
   max-width: 720px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 120px 24px 80px;
 }
 
 /* ===== Menu header ===== */
@@ -287,24 +338,6 @@ body::before {
   margin-bottom: 18px;
 }
 
-.menu-foot .foot-back {
-  display: inline-block;
-  padding: 11px 30px;
-  border: 1px solid rgba(198, 203, 212, 0.38);
-  color: var(--gold);
-  font-family: 'Cinzel', serif;
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: background 0.3s, color 0.3s;
-}
-
-.menu-foot .foot-back:hover {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-  color: #140d05;
-}
-
 .menu-foot .copy {
   color: var(--white-dim);
   font-size: 10px;
@@ -344,11 +377,34 @@ body::before {
 }
 
 /* ===== Responsive ===== */
+/* nav collapses to a horizontal scroller (matches main site behaviour) */
+@media (max-width: 768px) {
+  nav#mainNav {
+    padding: 16px 18px;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+  nav#mainNav.scrolled {
+    padding: 12px 18px;
+  }
+  nav#mainNav .nav-logo {
+    display: none;
+  }
+  nav#mainNav .nav-links {
+    gap: 20px;
+    min-width: max-content;
+  }
+  nav#mainNav .nav-links a {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+  .menu-wrap { padding: 96px 24px 80px; }
+}
+
 @media (max-width: 520px) {
-  .menu-wrap { padding: 28px 18px 64px; }
+  .menu-wrap { padding: 88px 18px 64px; }
   .menu-item { gap: 14px; padding: 18px 2px; }
   .menu-name { font-size: 16px; }
   .menu-price { font-size: 17px; }
   .cat-head { flex-direction: column; gap: 4px; align-items: flex-start; }
-  .topbar-spacer { width: 40px; }
 }
