@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SUDONPO — 後台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  :root{
+    --bg:#0d0b09; --panel:#17130e; --panel-2:#1f1a12; --line:#3a2f1e;
+    --gold:#c9a84c; --gold-soft:#e6cd82; --ink:#efe7d6; --mut:#9c917c;
+    --danger:#c65a4a; --ok:#6fae72;
+    --sans:'Space Grotesk',system-ui,sans-serif;
+    --serif:'Cormorant Garamond',serif;
+    --mono:'JetBrains Mono',monospace;
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{
+    margin:0;background:
+      radial-gradient(120% 80% at 50% -10%, #241d12 0%, var(--bg) 55%);
+    color:var(--ink);font-family:var(--sans);min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold-soft)}
+  button{font-family:var(--sans);cursor:pointer}
+  .wrap{max-width:1040px;margin:0 auto;padding:28px 20px 80px}
+
+  /* ---------- Login ---------- */
+  #login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .login-card{
+    text-align:center;background:var(--panel);border:1px solid var(--line);
+    border-radius:16px;padding:48px 40px;max-width:400px;width:100%;
+    box-shadow:0 24px 60px rgba(0,0,0,.5);
+  }
+  .brand{font-family:var(--serif);font-size:13px;letter-spacing:.5em;color:var(--gold);text-transform:uppercase}
+  .login-card h1{font-family:var(--serif);font-weight:600;font-size:40px;margin:.2em 0 .1em}
+  .login-card p{color:var(--mut);font-size:14px;margin:0 0 28px}
+  .gh-btn{
+    display:inline-flex;align-items:center;gap:10px;width:100%;justify-content:center;
+    background:var(--ink);color:#0d0b09;border:none;border-radius:10px;
+    padding:14px 20px;font-size:15px;font-weight:600;transition:transform .15s,box-shadow .15s;
+  }
+  .gh-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.4)}
+  .gh-btn svg{width:20px;height:20px}
+
+  /* ---------- Top bar ---------- */
+  header.bar{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:26px;flex-wrap:wrap;
+  }
+  .bar .brand{display:block}
+  .bar h1{font-family:var(--serif);font-weight:600;font-size:26px;margin:2px 0 0}
+  .who{text-align:right;font-size:12px;color:var(--mut);line-height:1.7}
+  .who .uid{font-family:var(--mono);color:var(--gold-soft);font-size:11px;user-select:all}
+  .logout{background:transparent;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:13px;margin-top:6px}
+  .logout:hover{color:var(--ink);border-color:var(--gold)}
+
+  .warn{background:rgba(198,90,74,.12);border:1px solid var(--danger);color:#eab5ac;
+    border-radius:10px;padding:12px 16px;font-size:13px;margin-bottom:22px;line-height:1.6}
+
+  /* ---------- Tabs ---------- */
+  .tabs{display:flex;gap:8px;margin-bottom:24px}
+  .tab{background:var(--panel);color:var(--mut);border:1px solid var(--line);
+    border-radius:999px;padding:9px 22px;font-size:14px;font-weight:500}
+  .tab.active{background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:#0d0b09;border-color:transparent;font-weight:600}
+
+  .view{display:none}
+  .view.active{display:block}
+
+  /* ---------- Storage ---------- */
+  .subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}
+  .subtab{background:transparent;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:7px 16px;font-size:13px;font-family:var(--mono)}
+  .subtab.active{color:var(--gold-soft);border-color:var(--gold)}
+
+  .uploader{display:flex;align-items:center;gap:12px;background:var(--panel);
+    border:1px dashed var(--line);border-radius:12px;padding:16px;margin-bottom:20px;flex-wrap:wrap}
+  .uploader input[type=file]{color:var(--mut);font-size:13px;font-family:var(--mono);flex:1;min-width:200px}
+  .btn{background:var(--gold);color:#0d0b09;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:600}
+  .btn:hover{background:var(--gold-soft)}
+  .btn[disabled]{opacity:.45;cursor:not-allowed}
+  .uploader select{background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+    border-radius:8px;padding:9px 12px;font-size:13px;font-family:var(--sans)}
+  .uploader select:focus{outline:none;border-color:var(--gold)}
+  code{font-family:var(--mono);font-size:.92em;color:var(--gold-soft);
+    background:rgba(201,168,76,.12);padding:1px 6px;border-radius:4px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .file{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+  .file .thumb{aspect-ratio:1;background:#0a0806 center/cover no-repeat;
+    display:flex;align-items:center;justify-content:center;color:var(--mut);font-family:var(--mono);font-size:11px}
+  .file .meta{padding:9px 11px;font-size:11px;color:var(--mut);font-family:var(--mono);word-break:break-all;flex:1}
+  .file .del{background:transparent;color:var(--danger);border:none;border-top:1px solid var(--line);padding:8px;font-size:12px;font-weight:600}
+  .file .del:hover{background:rgba(198,90,74,.14)}
+
+  /* ---------- DB table ---------- */
+  .table-wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:13px;min-width:640px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--gold);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-family:var(--mono)}
+  tr:last-child td{border-bottom:none}
+  td.id,td.time{font-family:var(--mono);font-size:11px;color:var(--mut);white-space:nowrap}
+  td input{width:100%;background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+    border-radius:6px;padding:7px 9px;font-family:var(--sans);font-size:13px}
+  td input:focus,td textarea:focus{outline:none;border-color:var(--gold)}
+  td input[type=number]{width:60px;text-align:center}
+  td textarea{width:100%;min-width:240px;background:var(--panel-2);border:1px solid var(--line);
+    color:var(--ink);border-radius:6px;padding:7px 9px;font-family:var(--mono);font-size:12px;
+    line-height:1.6;resize:vertical}
+  .row-actions{display:flex;gap:6px;white-space:nowrap}
+  .mini{border:none;border-radius:6px;padding:6px 12px;font-size:12px;font-weight:600}
+  .mini.save{background:var(--ok);color:#0d0b09;display:none}
+  .mini.save.show{display:inline-block}
+  .mini.del{background:transparent;color:var(--danger);border:1px solid var(--line)}
+  .mini.del:hover{border-color:var(--danger)}
+
+  .empty{color:var(--mut);text-align:center;padding:48px 0;font-style:italic;font-family:var(--serif);font-size:18px}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+    background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+    padding:12px 22px;border-radius:10px;font-size:13px;opacity:0;pointer-events:none;
+    transition:opacity .25s,transform .25s;z-index:50;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.err{border-color:var(--danger)}
+  .loading{color:var(--mut);font-family:var(--mono);font-size:13px;padding:30px 0;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- ===== 登入畫面 ===== -->
+<section id="login" hidden>
+  <div class="login-card">
+    <div class="brand">SUDONPO</div>
+    <h1>後台管理</h1>
+    <p>需以授權的 GitHub 帳號登入</p>
+    <button class="gh-btn" id="loginBtn">
+      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      使用 GitHub 登入
+    </button>
+  </div>
+</section>
+
+<!-- ===== 後台主畫面 ===== -->
+<main id="app" class="wrap" hidden>
+  <header class="bar">
+    <div>
+      <span class="brand">SUDONPO</span>
+      <h1>後台管理</h1>
+    </div>
+    <div class="who">
+      <div id="userEmail"></div>
+      <div class="uid" id="userUid" title="點一下可全選複製"></div>
+      <button class="logout" id="logoutBtn">登出</button>
+    </div>
+  </header>
+
+  <div class="warn" id="unconfiguredWarn" hidden></div>
+
+  <div class="tabs">
+    <button class="tab active" data-view="storage">圖片 Storage</button>
+    <button class="tab" data-view="team">店員 Team</button>
+    <button class="tab" data-view="db">留言 Database</button>
+  </div>
+
+  <!-- Storage -->
+  <section class="view active" id="view-storage">
+    <div class="subtabs" id="bucketTabs"></div>
+    <div class="uploader">
+      <select id="memberSelect" hidden></select>
+      <input type="file" id="fileInput" accept="image/*" multiple>
+      <button class="btn" id="uploadBtn" disabled>上傳到目前 bucket</button>
+      <span id="uploadHint" style="font-size:12px;color:var(--mut)"></span>
+    </div>
+    <p id="teamUploadNote" hidden style="font-size:12px;color:var(--mut);margin:-10px 0 18px;line-height:1.6">
+      Team bucket：先選店員，上傳的圖片會自動改名為 <code>prefix-序號</code>（沿用原副檔名、序號不重複）。
+    </p>
+    <div id="fileGrid" class="grid"></div>
+  </section>
+
+  <!-- Team members -->
+  <section class="view" id="view-team">
+    <div style="margin-bottom:16px">
+      <button class="btn" id="addMemberBtn">＋ 新增店員</button>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>順序</th><th>名稱</th><th>Prefix</th><th>標籤</th><th>介紹 (HTML)</th><th></th></tr>
+        </thead>
+        <tbody id="teamBody"></tbody>
+      </table>
+    </div>
+    <p style="color:var(--mut);font-size:12px;margin-top:12px;line-height:1.8">
+      順序：數字小的排前面。標籤：用半形逗號分隔（例：<code>Host,Dancer</code>）。<br>
+      介紹：可放 HTML，會直接嵌入前台 <code>.team-bio</code>；換行分段請用 <code>&lt;p&gt;…&lt;/p&gt;</code>，emoji 可包 <code>&lt;span class="emoji"&gt;🎸&lt;/span&gt;</code>。
+    </p>
+  </section>
+
+  <!-- DB -->
+  <section class="view" id="view-db">
+    <div class="table-wrap">
+      <table id="commentsTable">
+        <thead>
+          <tr><th>建立時間</th><th>ID</th><th>名稱</th><th>留言</th><th></th></tr>
+        </thead>
+        <tbody id="commentsBody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================================
+ * 設定區
+ * ======================================================================= */
+const SUPABASE_URL = 'https://pptlvorexginzakrbehm.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_qYEycFbdpPUNwh4DPG0GlQ_XbxCNDVI';
+
+// 允許進入後台的 Supabase user id。留空 = 只靠後端 RLS 把關（畫面不額外擋）。
+// 建議：登入後把右上角的 uid 填進來，非本人就會被前端擋下。
+const ALLOWED_UIDS = [];
+
+// 要管理的 Storage buckets（對應前台 gallery.js）
+const BUCKETS = ['Team', 'VIP', 'Voices'];
+
+// 要管理的資料表
+const DB_TABLE = 'comments';
+const TEAM_TABLE = 'team_members';
+/* ===================================================================== */
+
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const $ = sel => document.querySelector(sel);
+const loginEl = $('#login');
+const appEl = $('#app');
+let currentBucket = BUCKETS[0];
+
+/* ---------- toast ---------- */
+let toastTimer;
+function toast(msg, isErr) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.toggle('err', !!isErr);
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---------- 認證流程 ---------- */
+$('#loginBtn').addEventListener('click', async () => {
+  const redirectTo = window.location.origin + window.location.pathname;
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: 'github',
+    options: { redirectTo }
+  });
+  if (error) toast('登入失敗：' + error.message, true);
+});
+
+$('#logoutBtn').addEventListener('click', async () => {
+  await sb.auth.signOut();
+  location.reload();
+});
+
+async function boot() {
+  const { data: { session } } = await sb.auth.getSession();
+
+  if (!session) {
+    loginEl.hidden = false;
+    return;
+  }
+
+  const user = session.user;
+
+  // 前端授權檢查（真正的門鎖是 RLS）
+  if (ALLOWED_UIDS.length && !ALLOWED_UIDS.includes(user.id)) {
+    await sb.auth.signOut();
+    loginEl.hidden = false;
+    loginEl.querySelector('p').textContent = '此帳號無權限存取後台。';
+    loginEl.querySelector('p').style.color = 'var(--danger)';
+    return;
+  }
+
+  // 進入後台
+  appEl.hidden = false;
+  $('#userEmail').textContent = user.email || user.user_metadata?.user_name || 'GitHub 使用者';
+  $('#userUid').textContent = user.id;
+
+  initTabs();
+  initBuckets();
+  loadFiles();
+  updateUploaderMode();
+  loadComments();
+  loadTeamMembers();
+}
+
+/* ---------- 主分頁切換 ---------- */
+function initTabs() {
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      tab.classList.add('active');
+      $('#view-' + tab.dataset.view).classList.add('active');
+    });
+  });
+}
+
+/* =========================================================================
+ * Storage 管理
+ * ======================================================================= */
+function initBuckets() {
+  const wrap = $('#bucketTabs');
+  wrap.innerHTML = '';
+  BUCKETS.forEach((b, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'subtab' + (i === 0 ? ' active' : '');
+    btn.textContent = b;
+    btn.addEventListener('click', () => {
+      currentBucket = b;
+      document.querySelectorAll('.subtab').forEach(s => s.classList.remove('active'));
+      btn.classList.add('active');
+      updateUploaderMode();
+      loadFiles();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+$('#fileInput').addEventListener('change', () => {
+  const n = $('#fileInput').files.length;
+  $('#uploadBtn').disabled = n === 0;
+  $('#uploadHint').textContent = n ? `已選 ${n} 個檔案` : '';
+});
+
+$('#uploadBtn').addEventListener('click', async () => {
+  const files = Array.from($('#fileInput').files);
+  if (!files.length) return;
+
+  // Team bucket：依所選店員 prefix 自動改名為「prefix-序號.副檔名」
+  let prefix = null;
+  if (currentBucket === 'Team') {
+    prefix = $('#memberSelect').value;
+    if (!prefix) { toast('請先選擇店員', true); return; }
+  }
+
+  $('#uploadBtn').disabled = true;
+  let ok = 0, fail = 0;
+
+  // 算出目前該 prefix 的最大序號，新檔從 +1 開始接續，確保不重複
+  let nextIndex = 1;
+  if (prefix) {
+    const { data: existing, error } = await sb.storage.from('Team')
+      .list('', { limit: 1000 });
+    if (error) { toast('讀取現有檔名失敗：' + error.message, true); $('#uploadBtn').disabled = false; return; }
+    const esc = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const re = new RegExp('^' + esc + '-(\\d+)\\.');
+    let max = 0;
+    (existing || []).forEach(f => {
+      const m = f.name.match(re);
+      if (m) max = Math.max(max, parseInt(m[1], 10));
+    });
+    nextIndex = max + 1;
+  }
+
+  for (const f of files) {
+    const ext = (f.name.match(/\.[^.]+$/) || ['.png'])[0].toLowerCase();
+    const targetName = prefix ? `${prefix}-${nextIndex++}${ext}` : f.name;
+    // 改名上傳的檔名保證唯一，故不 upsert（避免意外覆蓋）；一般 bucket 維持原本 upsert
+    const { error } = await sb.storage.from(currentBucket)
+      .upload(targetName, f, { upsert: !prefix, contentType: f.type });
+    if (error) { fail++; console.error('[upload]', targetName, error.message); }
+    else ok++;
+  }
+  toast(`上傳完成：成功 ${ok}${fail ? `、失敗 ${fail}` : ''}`, fail > 0);
+  $('#fileInput').value = '';
+  $('#uploadHint').textContent = '';
+  loadFiles();
+});
+
+/* ---------- 上傳模式：Team 顯示店員下拉、否則隱藏 ---------- */
+async function updateUploaderMode() {
+  const sel = $('#memberSelect');
+  const note = $('#teamUploadNote');
+  const isTeam = currentBucket === 'Team';
+  sel.hidden = !isTeam;
+  note.hidden = !isTeam;
+  if (isTeam) await loadMemberOptions();
+}
+
+async function loadMemberOptions() {
+  const sel = $('#memberSelect');
+  const { data, error } = await sb.from(TEAM_TABLE)
+    .select('name,prefix,priority').order('priority', { ascending: true });
+  if (error) { console.warn('[Team] 載入店員下拉失敗：', error.message); return; }
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">— 選擇店員 —</option>' +
+    (data || []).filter(m => m.prefix)
+      .map(m => `<option value="${m.prefix}">${m.name}</option>`).join('');
+  if (cur) sel.value = cur;
+}
+
+async function loadFiles() {
+  const grid = $('#fileGrid');
+  grid.innerHTML = '<div class="loading">載入中…</div>';
+
+  const { data: files, error } = await sb.storage.from(currentBucket)
+    .list('', { limit: 1000, sortBy: { column: 'name', order: 'asc' } });
+
+  if (error) {
+    grid.innerHTML = `<div class="empty">讀取 ${currentBucket} 失敗：${error.message}</div>`;
+    return;
+  }
+  const items = (files || []).filter(f => f.id && !f.name.startsWith('.'));
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty">此 bucket 沒有檔案</div>';
+    return;
+  }
+
+  // 批次簽名縮圖
+  const names = items.map(f => f.name);
+  const { data: signed } = await sb.storage.from(currentBucket).createSignedUrls(names, 3600);
+  const urlMap = {};
+  (signed || []).forEach(s => { if (s.signedUrl) urlMap[s.path] = s.signedUrl; });
+
+  grid.innerHTML = '';
+  items.forEach(f => {
+    const url = urlMap[f.name];
+    const card = document.createElement('div');
+    card.className = 'file';
+    card.innerHTML = `
+      <div class="thumb" ${url ? `style="background-image:url('${url}')"` : ''}>${url ? '' : '無預覽'}</div>
+      <div class="meta">${f.name}</div>
+      <button class="del">刪除</button>`;
+    card.querySelector('.del').addEventListener('click', () => deleteFile(f.name));
+    grid.appendChild(card);
+  });
+}
+
+async function deleteFile(name) {
+  if (!confirm(`確定刪除「${currentBucket}/${name}」？此動作無法復原。`)) return;
+  const { error } = await sb.storage.from(currentBucket).remove([name]);
+  if (error) { toast('刪除失敗：' + error.message, true); return; }
+  toast('已刪除 ' + name);
+  loadFiles();
+}
+
+/* =========================================================================
+ * DB（comments）管理
+ * ======================================================================= */
+async function loadComments() {
+  const body = $('#commentsBody');
+  body.innerHTML = '<tr><td colspan="5" class="loading">載入中…</td></tr>';
+
+  const { data, error } = await sb.from(DB_TABLE)
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(200);
+
+  if (error) {
+    body.innerHTML = `<tr><td colspan="5" class="empty">讀取失敗：${error.message}</td></tr>`;
+    return;
+  }
+  if (!data || !data.length) {
+    body.innerHTML = '<tr><td colspan="5" class="empty">目前沒有留言</td></tr>';
+    return;
+  }
+
+  body.innerHTML = '';
+  data.forEach(row => body.appendChild(renderRow(row)));
+}
+
+function renderRow(row) {
+  const tr = document.createElement('tr');
+  const time = row.created_at ? new Date(row.created_at).toLocaleString('zh-TW', { hour12: false }) : '';
+
+  const tdTime = document.createElement('td');
+  tdTime.className = 'time'; tdTime.textContent = time;
+
+  const tdId = document.createElement('td');
+  tdId.className = 'id'; tdId.textContent = row.id ?? '—';
+
+  const nameInput = document.createElement('input');
+  nameInput.value = row.user_name ?? '';
+  const msgInput = document.createElement('input');
+  msgInput.value = row.message ?? '';
+
+  const tdName = document.createElement('td'); tdName.appendChild(nameInput);
+  const tdMsg = document.createElement('td'); tdMsg.appendChild(msgInput);
+
+  const saveBtn = document.createElement('button');
+  saveBtn.className = 'mini save'; saveBtn.textContent = '儲存';
+  const delBtn = document.createElement('button');
+  delBtn.className = 'mini del'; delBtn.textContent = '刪除';
+
+  const markDirty = () => saveBtn.classList.add('show');
+  nameInput.addEventListener('input', markDirty);
+  msgInput.addEventListener('input', markDirty);
+
+  saveBtn.addEventListener('click', async () => {
+    const { error } = await sb.from(DB_TABLE)
+      .update({ user_name: nameInput.value, message: msgInput.value })
+      .eq('id', row.id);
+    if (error) { toast('更新失敗：' + error.message, true); return; }
+    toast('已更新');
+    saveBtn.classList.remove('show');
+  });
+
+  delBtn.addEventListener('click', async () => {
+    if (!confirm('確定刪除這筆留言？')) return;
+    const { error } = await sb.from(DB_TABLE).delete().eq('id', row.id);
+    if (error) { toast('刪除失敗：' + error.message, true); return; }
+    toast('已刪除');
+    tr.remove();
+  });
+
+  const tdAct = document.createElement('td');
+  const actWrap = document.createElement('div');
+  actWrap.className = 'row-actions';
+  actWrap.append(saveBtn, delBtn);
+  tdAct.appendChild(actWrap);
+
+  tr.append(tdTime, tdId, tdName, tdMsg, tdAct);
+  return tr;
+}
+
+/* =========================================================================
+ * 店員（team_members）管理
+ * ======================================================================= */
+async function loadTeamMembers() {
+  const body = $('#teamBody');
+  body.innerHTML = '<tr><td colspan="7" class="loading">載入中…</td></tr>';
+
+  const { data, error } = await sb.from(TEAM_TABLE)
+    .select('*').order('priority', { ascending: true });
+
+  if (error) {
+    body.innerHTML = `<tr><td colspan="7" class="empty">讀取失敗：${error.message}</td></tr>`;
+    return;
+  }
+  if (!data || !data.length) {
+    body.innerHTML = '<tr><td colspan="7" class="empty">目前沒有店員資料</td></tr>';
+    return;
+  }
+
+  body.innerHTML = '';
+  data.forEach(row => body.appendChild(renderMemberRow(row)));
+}
+
+function renderMemberRow(row) {
+  const tr = document.createElement('tr');
+
+  const tdId = document.createElement('td');
+  tdId.className = 'id'; tdId.textContent = row.id ?? '—';
+
+  const prio = document.createElement('input');
+  prio.type = 'number'; prio.value = row.priority ?? 0;
+  const name = document.createElement('input'); name.value = row.name ?? '';
+  const prefix = document.createElement('input'); prefix.value = row.prefix ?? '';
+  const tag = document.createElement('input'); tag.value = row.tag ?? '';
+  tag.placeholder = 'Host,Dancer';
+  const desc = document.createElement('textarea');
+  desc.rows = 3; desc.value = row.description ?? '';
+  desc.placeholder = '<p>介紹…</p>';
+
+  const cell = el => { const td = document.createElement('td'); td.appendChild(el); return td; };
+
+  const saveBtn = document.createElement('button');
+  saveBtn.className = 'mini save'; saveBtn.textContent = '儲存';
+  const delBtn = document.createElement('button');
+  delBtn.className = 'mini del'; delBtn.textContent = '刪除';
+
+  const markDirty = () => saveBtn.classList.add('show');
+  [prio, name, prefix, tag, desc].forEach(i => i.addEventListener('input', markDirty));
+
+  saveBtn.addEventListener('click', async () => {
+    const { error } = await sb.from(TEAM_TABLE).update({
+      priority: parseInt(prio.value, 10) || 0,
+      name: name.value,
+      prefix: prefix.value.trim(),
+      tag: tag.value,
+      description: desc.value,
+    }).eq('id', row.id);
+    if (error) { toast('更新失敗：' + error.message, true); return; }
+    toast('已更新');
+    saveBtn.classList.remove('show');
+    loadMemberOptions(); // 名稱/prefix 可能變動，同步上傳下拉
+  });
+
+  delBtn.addEventListener('click', async () => {
+    if (!confirm(`確定刪除店員「${row.name}」？`)) return;
+    const { error } = await sb.from(TEAM_TABLE).delete().eq('id', row.id);
+    if (error) { toast('刪除失敗：' + error.message, true); return; }
+    toast('已刪除');
+    tr.remove();
+    loadMemberOptions();
+  });
+
+  const tdAct = document.createElement('td');
+  const actWrap = document.createElement('div');
+  actWrap.className = 'row-actions';
+  actWrap.append(saveBtn, delBtn);
+  tdAct.appendChild(actWrap);
+
+  tr.append(tdId, cell(prio), cell(name), cell(prefix), cell(tag), cell(desc), tdAct);
+  return tr;
+}
+
+$('#addMemberBtn').addEventListener('click', async () => {
+  const { error } = await sb.from(TEAM_TABLE)
+    .insert({ name: '新店員', prefix: '', tag: '', priority: 0, description: '' });
+  if (error) { toast('新增失敗：' + error.message, true); return; }
+  toast('已新增，填寫後記得按儲存');
+  loadTeamMembers();
+  loadMemberOptions();
+});
+
+/* ---------- 啟動 ---------- */
+boot();
+</script>
+</body>
+</html>

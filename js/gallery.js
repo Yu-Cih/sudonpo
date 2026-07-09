@@ -42,6 +42,73 @@ function initCarousel(carousel) {
 // Init placeholders immediately so controls are correct before Supabase responds.
 document.querySelectorAll('[data-carousel]').forEach(initCarousel);
 
+// ===== Render team members from Supabase table "team_members" =====
+// 創辦人（.founder-member）維持寫死在 index.html；其餘店員由這裡依 priority 動態產生，
+// 產生後再交給 loadTeamPhotos() 依 data-prefix 填圖。description 直接當 HTML 嵌入。
+const TEAM_TABLE = 'team_members';
+
+// 只跳脫屬性 / 純文字欄位（name、tag、prefix）；description 是可信 HTML，原樣輸出。
+const escHtml = s => String(s ?? '').replace(/[&<>"']/g, c =>
+  ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+function teamMemberCard(m) {
+  const tags = String(m.tag || '').split(',')
+    .map(t => t.trim()).filter(Boolean)
+    .map(t => `<span class="team-tag">${escHtml(t)}</span>`)
+    .join('\n            ');
+  return `
+    <div class="team-member reveal" data-prefix="${escHtml(m.prefix)}">
+      <div class="team-member-top">
+        <div class="team-photo-frame">
+          <div class="team-photo member-carousel" data-carousel>
+            <div class="member-carousel-track">
+              <div class="member-slide is-placeholder"><span class="placeholder-text">Photo</span></div>
+            </div>
+            <button class="member-carousel-btn prev" type="button" aria-label="上一張">&#8249;</button>
+            <button class="member-carousel-btn next" type="button" aria-label="下一張">&#8250;</button>
+            <div class="member-carousel-dots"></div>
+          </div>
+          <img class="photo-logo" src="assets/images/logo-horizontal.png" alt="SUDONPO CLUB" aria-hidden="true">
+        </div>
+        <div class="team-member-info">
+          <div class="team-name">${escHtml(m.name)}</div>
+          <div class="team-tags">
+            ${tags}
+          </div>
+          <div class="team-bio">${m.description || ''}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+async function renderTeamMembers() {
+  if (typeof supabaseClient === 'undefined' || !supabaseClient) return;
+  const list = document.querySelector('.team-list');
+  if (!list) return;
+
+  const { data, error } = await supabaseClient
+    .from(TEAM_TABLE).select('*').order('priority', { ascending: true });
+  if (error) {
+    console.warn('[Team] 讀取 team_members 失敗：', error.message,
+      '\n→ 確認 table 已建立，且有給 anon 的 SELECT policy。');
+    return;
+  }
+  if (!data || !data.length) { console.warn('[Team] team_members 沒有資料'); return; }
+
+  // 附加到 .team-list（創辦人卡片維持在最前）
+  list.insertAdjacentHTML('beforeend', data.map(teamMemberCard).join(''));
+
+  // 新卡片沒被 index.html 內原本的 reveal observer 追到，這裡自行套用捲動淡入
+  const fresh = list.querySelectorAll('.team-member[data-prefix]:not(.founder-member)');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  fresh.forEach(el => obs.observe(el));
+
+  // 先以 placeholder 初始化新 carousel 的控制項（之後 loadTeamPhotos 會用真圖 re-init）
+  list.querySelectorAll('[data-carousel]').forEach(initCarousel);
+}
+
 // ===== Load each member's photos from Supabase Storage =====
 // Bucket "Team" is private + flat; files are named "<prefix>-1.jpg", "<prefix>-2.jpg"…
 // Each .team-member carries data-prefix; we list once, filter by prefix, sign URLs.
@@ -126,7 +193,12 @@ async function loadTeamPhotos() {
     log(`「${name}」已載入 ${urls.length} 張 ✓`);
   }
 }
-loadTeamPhotos();
+
+// 先動態產生店員卡片，再依 data-prefix 載入照片
+(async () => {
+  await renderTeamMembers();
+  loadTeamPhotos();
+})();
 
 // ===== Weekly VIP photo (Supabase Storage, bucket "VIP", single file "vip.png") =====
 async function loadVipPhoto() {
